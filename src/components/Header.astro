@@ -1,0 +1,97 @@
+---
+const navLinks = [
+  { label: 'Início', href: '/' },
+  { label: 'Produtos', href: '/produtos' },
+  { label: 'Serviços', href: '/servicos' },
+  { label: 'Contato', href: '/contato' },
+];
+---
+
+<header class="bg-creme border-b border-black/8 sticky top-0 z-50">
+  <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+    <a href="/" aria-label="Ginga Studio 3D">
+      <img src="/logo.png" alt="Ginga Studio 3D" class="h-11.25 w-auto" />
+    </a>
+
+    <nav class="hidden md:flex gap-8 items-center" aria-label="Navegação principal">
+      {
+        navLinks.map(({ label, href }) => (
+          <a
+            href={href}
+            class="text-sm font-semibold text-grafite hover:text-azul transition-colors"
+          >
+            {label}
+          </a>
+        ))
+      }
+    </nav>
+
+    <div class="flex items-center gap-2">
+      <button
+        aria-label="Carrinho de compras"
+        class="p-2 rounded-full hover:bg-black/5 transition-colors cursor-pointer"
+      >
+        <img src="/icon-cart.svg" alt="" aria-hidden="true" class="w-[22px] h-[22px]" />
+      </button>
+
+      <button
+        id="menu-toggle"
+        aria-label="Abrir menu"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        class="md:hidden p-2 rounded-full hover:bg-black/5 transition-colors cursor-pointer"
+      >
+        <svg
+          id="icon-hamburger"
+          class="w-5 h-5 text-grafite"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+        <svg
+          id="icon-close"
+          class="w-5 h-5 text-grafite hidden"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          viewBox="0 0 24 24"
+        >
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <div id="mobile-menu" class="hidden md:hidden border-t border-black/8" aria-label="Menu mobile">
+    <nav class="flex flex-col px-6 py-4 gap-4">
+      {
+        navLinks.map(({ label, href }) => (
+          <a
+            href={href}
+            class="text-sm font-semibold text-grafite hover:text-azul transition-colors py-1"
+          >
+            {label}
+          </a>
+        ))
+      }
+    </nav>
+  </div>
+</header>
+
+<script>
+  const toggle = document.getElementById('menu-toggle')!;
+  const menu = document.getElementById('mobile-menu')!;
+  const iconHamburger = document.getElementById('icon-hamburger')!;
+  const iconClose = document.getElementById('icon-close')!;
+
+  toggle.addEventListener('click', () => {
+    const isOpen = !menu.classList.contains('hidden');
+    menu.classList.toggle('hidden', isOpen);
+    iconHamburger.classList.toggle('hidden', !isOpen);
+    iconClose.classList.toggle('hidden', isOpen);
+    toggle.setAttribute('aria-expanded', String(!isOpen));
+  });
+</script>

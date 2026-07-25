@@ -1,3 +1,19 @@
+# Ginga Studio 3D
+
+## The Business
+
+Ginga Studio 3D is a Brazilian studio based in Natal/RN ("Cidade do Sol") that produces **personalized 3D-printed gifts and branded merchandise** ("brindes personalizados"). Their products include lamps, stamps, jewelry holders, can openers, and table accessories — all made to order.
+
+The studio targets businesses and individuals who want custom branded products that carry identity and meaning, not just generic promotional items. Their positioning is craft-forward: technology combined with artisanal care.
+
+## The Software Project
+
+This is the **storefront website** for Ginga Studio 3D. It is a marketing and sales page that lets customers browse products and place orders.
+
+The checkout flow is intentionally simple: customers browse the catalog, add items to a cart, and at the end the site **generates a pre-filled WhatsApp message** with their order summary, which they send directly to the studio. There is no traditional payment gateway — all orders are handled via WhatsApp conversation.
+
+---
+
 ## Development
 
 When starting the dev server, use background mode:
