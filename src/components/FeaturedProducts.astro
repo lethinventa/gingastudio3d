@@ -11,9 +11,10 @@ const products = [
 
 <section class="w-full py-16 px-6">
   <div class="max-w-7xl mx-auto flex flex-col gap-10">
-
     <div class="flex items-center justify-between gap-4 flex-wrap">
-      <h2 class="text-grafite text-3xl lg:text-[32px] font-light tracking-[-0.04em] leading-tight whitespace-nowrap">
+      <h2
+        class="text-grafite text-3xl lg:text-[32px] font-light tracking-[-0.04em] leading-tight whitespace-nowrap"
+      >
         Os <span class="font-semibold text-azul">brindes</span> mais amados
       </h2>
       <a
@@ -27,6 +28,5 @@ const products = [
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
       {products.map((p) => <ProductCard {...p} />)}
     </div>
-
   </div>
 </section>

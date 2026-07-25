@@ -1,13 +1,15 @@
 ---
 const count = 8;
-const logos = Array.from({ length: count }, (_, i) => ({ odd: i % 2 === 0 }));
+const logos = Array.from({ length: count }, (_, i) => ({ odd: i % 2 === 0, desktopOnly: i >= 4 }));
 ---
 
-<section aria-hidden="true" class="w-full py-16">
-  <div class="flex items-center justify-between px-6 max-w-7xl mx-auto">
+<section aria-hidden="true" class="w-full py-8">
+  <div class="flex items-center justify-between py-8 px-6 max-w-7xl mx-auto overflow-x-hidden">
     {
-      logos.map(({ odd }) => (
-        <div class={odd ? 'fish fish--odd' : 'fish fish--even'}>
+      logos.map(({ odd, desktopOnly }) => (
+        <div
+          class={`${odd ? 'fish fish--odd' : 'fish fish--even'}${desktopOnly ? ' hidden md:block' : ''}`}
+        >
           <svg
             width="67"
             height="23"
@@ -41,31 +43,25 @@ const logos = Array.from({ length: count }, (_, i) => ({ odd: i % 2 === 0 }));
 
   @keyframes fish-tick-odd {
     0% {
-      transform: scaleY(-1) rotate(0deg);
+      transform: scaleY(-1) rotate(10deg);
     }
-    30% {
-      transform: scaleY(-1) rotate(-15deg);
-    }
-    60% {
-      transform: scaleY(-1) rotate(0deg);
+    50% {
+      transform: scaleY(-1) rotate(-10deg);
     }
     100% {
-      transform: scaleY(-1) rotate(0deg);
+      transform: scaleY(-1) rotate(10deg);
     }
   }
 
   @keyframes fish-tick-even {
     0% {
-      transform: scaleY(-1) rotate(0deg);
+      transform: scaleY(-1) rotate(-10deg);
     }
-    30% {
-      transform: scaleY(-1) rotate(15deg);
-    }
-    60% {
-      transform: scaleY(-1) rotate(0deg);
+    50% {
+      transform: scaleY(-1) rotate(10deg);
     }
     100% {
-      transform: scaleY(-1) rotate(0deg);
+      transform: scaleY(-1) rotate(-10deg);
     }
   }
 </style>
