@@ -1,0 +1,32 @@
+---
+import ProductCard from './ProductCard.astro';
+
+const products = [
+  { name: 'Carimbo Textura Tecido', price: 'R$ 29,00', category: 'Carimbos' },
+  { name: 'Luminária Geométrica', price: 'R$ 89,00', category: 'Luminárias' },
+  { name: 'Porta Joias Personalizado', price: 'R$ 49,00', category: 'Porta Joias' },
+  { name: 'Abridor de Lata', price: 'R$ 19,00', category: 'Utilidades' },
+];
+---
+
+<section class="w-full py-16 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col gap-10">
+
+    <div class="flex items-center justify-between gap-4 flex-wrap">
+      <h2 class="text-grafite text-3xl lg:text-[32px] font-light tracking-[-0.04em] leading-tight whitespace-nowrap">
+        Os <span class="font-semibold text-azul">brindes</span> mais amados
+      </h2>
+      <a
+        href="/produtos"
+        class="border border-grafite/25 rounded-full px-5 py-2 text-[13px] font-bold text-grafite hover:border-azul hover:text-azul transition-colors whitespace-nowrap"
+      >
+        Ver todos produtos
+      </a>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+      {products.map((p) => <ProductCard {...p} />)}
+    </div>
+
+  </div>
+</section>

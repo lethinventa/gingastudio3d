@@ -1,0 +1,28 @@
+---
+interface Props {
+  name: string;
+  price: string;
+  category: string;
+  image?: string;
+  href?: string;
+}
+
+const { name, price, category, image, href = '#' } = Astro.props;
+---
+
+<a href={href} class="group bg-creme rounded-3xl overflow-hidden flex flex-col min-w-0">
+  <div class="relative h-44 w-full bg-[#e8dbbf] shrink-0">
+    {image
+      ? <img src={image} alt={name} class="absolute inset-0 w-full h-full object-cover" />
+      : <div class="absolute inset-0 bg-[#c4c4c4]"></div>
+    }
+    <span class="absolute top-4 right-4 bg-creme/90 text-grafite text-[10px] font-semibold uppercase tracking-[0.05em] px-3 py-1.5 rounded-full">
+      {category}
+    </span>
+  </div>
+
+  <div class="flex flex-col gap-1.5 p-5">
+    <p class="font-bold text-base text-grafite leading-snug group-hover:text-azul transition-colors">{name}</p>
+    <p class="font-bold text-lg text-terra leading-snug">{price}</p>
+  </div>
+</a>
