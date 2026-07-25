@@ -1,0 +1,14 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-azul: oklch(0.4264 0.2426 263.91);
+  --color-amarelo: oklch(0.9391 0.0794 91.81);
+  --color-terra: oklch(0.5732 0.17 35.78);
+  --color-creme: oklch(0.9821 0.0141 74.43);
+  --color-grafite: oklch(0.235 0 0);
+  --color-amarelao: oklch(0.8506 0.1724 92.24);
+}
+
+body {
+  font-family: 'Onest Variable', sans-serif;
+}
