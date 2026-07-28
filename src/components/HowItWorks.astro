@@ -1,0 +1,38 @@
+---
+const steps = [
+  {
+    number: '01',
+    title: 'Escolha seus produtos favoritos',
+    body: 'Navegue pelo catálogo e encontre os brindes que você precisa.',
+  },
+  {
+    number: '02',
+    title: 'Adicione ao carrinho de compras',
+    body: 'Escolha a quantidade e as personalizações e adicione os itens ao carrinho.',
+  },
+  {
+    number: '03',
+    title: 'Envie o pedido pelo WhatsApp',
+    body: 'Clique em finalizar pedido e sua mensagem será gerada automaticamente.',
+  },
+  {
+    number: '05',
+    title: 'Produção sob encomenda',
+    body: 'Fabricamos seus brindes com cuidado e qualidade garantida.',
+  },
+];
+---
+
+<section class="w-full py-16 px-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+    {steps.map(({ number, title, body }) => (
+      <div class="bg-azul rounded-3xl p-7 flex flex-col gap-8">
+        <span class="text-sm font-light text-white/50">{number}</span>
+        <div class="flex flex-col gap-2">
+          <h3 class="font-bold text-white text-xl leading-snug">{title}</h3>
+          <p class="text-white/70 text-sm leading-relaxed">{body}</p>
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
