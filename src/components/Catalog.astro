@@ -1,0 +1,95 @@
+---
+import ProductCard from './ProductCard.astro';
+import { products } from '../data/products';
+
+const categories = ['Todos', ...new Set(products.map((p) => p.category))];
+---
+
+<section class="w-full py-8 md:py-16 px-6">
+  <div class="max-w-7xl mx-auto flex flex-col gap-10">
+    <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+      <h2 class="text-grafite text-3xl lg:text-[32px] font-light tracking-[-0.04em] leading-tight whitespace-nowrap shrink-0">
+        Catálogo de <span class="font-semibold text-azul">produtos</span>
+      </h2>
+      <div class="flex gap-2 overflow-x-auto pb-1">
+        {categories.map((cat, i) => (
+          <button
+            class={`catalog-tab shrink-0 font-bold text-[13px] px-[17px] py-[9px] rounded-full whitespace-nowrap${i === 0 ? ' is-active' : ''}`}
+            data-category={cat}
+          >
+            {cat}
+          </button>
+        ))}
+      </div>
+    </div>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="catalog-grid">
+      {products.map((p) => (
+        <div data-category={p.category}>
+          <ProductCard {...p} />
+        </div>
+      ))}
+    </div>
+
+    <div class="flex justify-center">
+      <button id="load-more-btn" class="border border-grafite/25 rounded-full px-5 py-[9px] text-[13px] font-bold text-grafite hover:border-azul hover:text-azul transition-colors">
+        Ver mais produtos
+      </button>
+    </div>
+  </div>
+</section>
+
+<style>
+  .catalog-tab {
+    border: 0.8px solid rgba(17, 17, 17, 0.25);
+    color: #111;
+    background: transparent;
+    transition: background-color 150ms, color 150ms, border-color 150ms;
+  }
+
+  .catalog-tab.is-active {
+    background: var(--color-azul);
+    color: var(--color-creme);
+    border-color: var(--color-azul);
+  }
+</style>
+
+<script>
+  const PAGE_SIZE = 8;
+  const tabs = document.querySelectorAll<HTMLButtonElement>('.catalog-tab');
+  const cards = Array.from(document.querySelectorAll<HTMLElement>('#catalog-grid > [data-category]'));
+  const loadMoreBtn = document.getElementById('load-more-btn')!;
+
+  let currentCategory = 'Todos';
+  let visibleCount = PAGE_SIZE;
+
+  function render() {
+    const filtered = cards.filter(
+      (card) =>
+        currentCategory === 'Todos' ||
+        card.dataset.category?.toLowerCase() === currentCategory.toLowerCase()
+    );
+
+    cards.forEach((card) => (card.style.display = 'none'));
+    filtered.slice(0, visibleCount).forEach((card) => (card.style.display = ''));
+
+    loadMoreBtn.style.display = filtered.length > visibleCount ? '' : 'none';
+  }
+
+  tabs.forEach((tab) => {
+    tab.addEventListener('click', () => {
+      currentCategory = tab.dataset.category!;
+      visibleCount = PAGE_SIZE;
+      tabs.forEach((t) => t.classList.remove('is-active'));
+      tab.classList.add('is-active');
+      render();
+    });
+  });
+
+  loadMoreBtn.addEventListener('click', () => {
+    visibleCount += PAGE_SIZE;
+    render();
+  });
+
+  render();
+</script>
