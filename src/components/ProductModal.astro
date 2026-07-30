@@ -1,0 +1,306 @@
+---
+
+---
+
+<div
+  id="product-modal"
+  style="display:none"
+  class="fixed left-0 right-0 bottom-0 z-40 bg-white overflow-y-auto flex flex-col"
+>
+  <!-- Breadcrumb / close bar -->
+  <div class="px-6 py-3 flex items-center gap-3 sticky top-0 bg-white z-10">
+    <button
+      id="modal-close"
+      class="flex items-center gap-1.5 opacity-60 hover:opacity-100 transition-opacity"
+    >
+      <svg
+        width="14"
+        height="14"
+        viewBox="0 0 14 14"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path
+          d="M8.75 2.91667L4.08333 7L8.75 11.0833"
+          stroke="#1e1e1e"
+          stroke-width="1.16667"
+          stroke-linecap="round"
+          stroke-linejoin="round"></path>
+      </svg>
+      <span class="font-light text-grafite text-sm leading-5">Voltar</span>
+    </button>
+    <span class="opacity-60 text-grafite font-light text-base">/</span>
+    <span id="modal-breadcrumb" class="text-azul text-sm"></span>
+  </div>
+
+  <!-- Main content — grows to fill remaining height and centers vertically -->
+  <div class="grow shrink-0 flex items-center px-6 lg:px-16 py-10">
+    <div class="w-full max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12">
+      <!-- Left: image gallery -->
+      <div class="flex-1 min-w-0">
+        <div class="rounded-2xl overflow-hidden bg-[#403d39] h-64 lg:h-[394px]">
+          <img id="modal-main-image" src="" alt="" class="w-full h-full object-cover" />
+        </div>
+        <div id="modal-thumbnails" class="flex gap-2 pt-3 overflow-x-auto"></div>
+      </div>
+
+      <!-- Right: product info -->
+      <div class="flex-1 min-w-0 flex flex-col gap-5">
+        <!-- Header -->
+        <div>
+          <p
+            id="modal-category"
+            class="text-azul text-[10px] font-bold tracking-[1.5px] uppercase leading-6"
+          >
+          </p>
+          <p id="modal-name" class="text-grafite text-3xl font-light leading-snug mt-1.5"></p>
+          <p id="modal-price" class="text-azul text-2xl font-bold leading-8 mt-2"></p>
+        </div>
+
+        <!-- Quantity -->
+        <div>
+          <p class="text-[10px] font-bold tracking-[1.54px] uppercase text-grafite mb-2">
+            Quantidade
+          </p>
+          <div class="inline-flex items-center border border-black/10 rounded-full p-px">
+            <button
+              id="modal-qty-minus"
+              class="w-11 h-11 flex items-center justify-center text-grafite hover:text-azul transition-colors"
+              aria-label="Diminuir quantidade"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M2.91667 7H11.0833"
+                  stroke="currentColor"
+                  stroke-width="1.16667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </button>
+            <span id="modal-qty-value" class="w-12 text-center font-medium text-grafite text-base"
+              >1</span
+            >
+            <button
+              id="modal-qty-plus"
+              class="w-11 h-11 flex items-center justify-center text-grafite hover:text-azul transition-colors"
+              aria-label="Aumentar quantidade"
+            >
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                <path
+                  d="M2.91667 7H11.0833"
+                  stroke="currentColor"
+                  stroke-width="1.16667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+                <path
+                  d="M7 2.91667V11.0833"
+                  stroke="currentColor"
+                  stroke-width="1.16667"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"></path>
+              </svg>
+            </button>
+          </div>
+        </div>
+
+        <!-- Description -->
+        <p
+          id="modal-description"
+          class="text-sm text-grafite/60 leading-relaxed"
+          style="display:none"
+        >
+        </p>
+
+        <!-- Specs -->
+        <div
+          id="modal-specs"
+          class="border-t border-black/25 pt-4 flex-col gap-3"
+          style="display:none"
+        >
+        </div>
+
+        <!-- CTA -->
+        <div class="pt-2">
+          <button
+            id="modal-add-to-cart"
+            class="w-full bg-azul text-white font-bold text-sm py-4 rounded-2xl flex items-center justify-center gap-2.5 hover:opacity-90 transition-opacity"
+          >
+            Adicionar ao Carrinho
+            <svg
+              width="16"
+              height="16"
+              viewBox="0 0 16 16"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                d="M5.33333 14.6667C5.70152 14.6667 6 14.3682 6 14C6 13.6318 5.70152 13.3333 5.33333 13.3333C4.96514 13.3333 4.66667 13.6318 4.66667 14C4.66667 14.3682 4.96514 14.6667 5.33333 14.6667Z"
+                stroke="white"
+                stroke-width="1.33333"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path
+                d="M12.6667 14.6667C13.0349 14.6667 13.3333 14.3682 13.3333 14C13.3333 13.6318 13.0349 13.3333 12.6667 13.3333C12.2985 13.3333 12 13.6318 12 14C12 14.3682 12.2985 14.6667 12.6667 14.6667Z"
+                stroke="white"
+                stroke-width="1.33333"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+              <path
+                d="M1.36667 1.36667H2.7L4.47333 9.64667C4.53839 9.94991 4.70711 10.221 4.95047 10.4132C5.19383 10.6055 5.4966 10.7069 5.80667 10.7H12.3267C12.6301 10.6995 12.9243 10.5955 13.1607 10.4052C13.397 10.2149 13.5614 9.94969 13.6267 9.65333L14.7267 4.7H3.41333"
+                stroke="white"
+                stroke-width="1.33333"
+                stroke-linecap="round"
+                stroke-linejoin="round"></path>
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  .modal-thumb {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 12px;
+    border: 2px solid transparent;
+    overflow: hidden;
+    opacity: 0.5;
+    cursor: pointer;
+    transition:
+      border-color 150ms,
+      opacity 150ms;
+  }
+
+  .modal-thumb.is-selected {
+    border-color: var(--color-azul);
+    opacity: 1;
+  }
+
+  .modal-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+</style>
+
+<script>
+  interface ProductData {
+    name: string;
+    price: string;
+    category: string;
+    image?: string;
+    images?: string[];
+    description?: string;
+    specs?: Record<string, string>;
+  }
+
+  const modal = document.getElementById('product-modal')!;
+  const mainImage = document.getElementById('modal-main-image') as HTMLImageElement;
+  const thumbnailsEl = document.getElementById('modal-thumbnails')!;
+  const breadcrumb = document.getElementById('modal-breadcrumb')!;
+  const categoryEl = document.getElementById('modal-category')!;
+  const nameEl = document.getElementById('modal-name')!;
+  const priceEl = document.getElementById('modal-price')!;
+  const descriptionEl = document.getElementById('modal-description')!;
+  const specsEl = document.getElementById('modal-specs')!;
+  const qtyValueEl = document.getElementById('modal-qty-value')!;
+
+  let quantity = 1;
+
+  function setQty(n: number) {
+    quantity = Math.max(1, n);
+    qtyValueEl.textContent = String(quantity);
+  }
+
+  document.getElementById('modal-qty-minus')!.addEventListener('click', () => setQty(quantity - 1));
+  document.getElementById('modal-qty-plus')!.addEventListener('click', () => setQty(quantity + 1));
+
+  function openModal(product: ProductData) {
+    setQty(1);
+    modal.scrollTop = 0;
+    modal.style.top =
+      (document.querySelector('header')?.getBoundingClientRect().bottom ?? 0) + 'px';
+
+    breadcrumb.textContent = product.name;
+    categoryEl.textContent = product.category;
+    nameEl.textContent = product.name;
+    priceEl.textContent = product.price;
+
+    const allImages = product.images?.length
+      ? product.images
+      : product.image
+        ? [product.image]
+        : [];
+
+    if (allImages.length) {
+      mainImage.src = allImages[0];
+      mainImage.alt = product.name;
+    }
+
+    thumbnailsEl.innerHTML = '';
+    if (allImages.length > 1) {
+      allImages.forEach((src, i) => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'modal-thumb' + (i === 0 ? ' is-selected' : '');
+        const img = document.createElement('img');
+        img.src = src;
+        img.alt = '';
+        btn.appendChild(img);
+        btn.addEventListener('click', () => {
+          mainImage.src = src;
+          thumbnailsEl.querySelectorAll<HTMLElement>('.modal-thumb').forEach((b, j) => {
+            b.classList.toggle('is-selected', j === i);
+          });
+        });
+        thumbnailsEl.appendChild(btn);
+      });
+    }
+
+    if (product.description) {
+      descriptionEl.textContent = product.description;
+      descriptionEl.style.display = '';
+    } else {
+      descriptionEl.style.display = 'none';
+    }
+
+    const specEntries = product.specs ? Object.entries(product.specs) : [];
+
+    if (specEntries.length) {
+      specsEl.innerHTML = specEntries
+        .map(
+          ([label, value]) => `
+          <div style="display:flex;gap:1rem;font-size:0.875rem;color:var(--color-grafite)">
+            <span style="width:7rem;flex-shrink:0;opacity:0.6">${label}</span>
+            <span>${value}</span>
+          </div>`,
+        )
+        .join('');
+      specsEl.style.display = 'flex';
+    } else {
+      specsEl.style.display = 'none';
+    }
+
+    modal.style.display = '';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeModal() {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+
+  document.querySelectorAll<HTMLElement>('[data-product]').forEach((el) => {
+    el.addEventListener('click', () => {
+      try {
+        openModal(JSON.parse(el.dataset.product!) as ProductData);
+      } catch {}
+    });
+  });
+
+  document.getElementById('modal-close')!.addEventListener('click', closeModal);
+  document.getElementById('modal-add-to-cart')!.addEventListener('click', closeModal);
+</script>
