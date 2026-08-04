@@ -1,0 +1,98 @@
+---
+import type { Product } from '../data/products';
+import { products } from '../data/products';
+import ProductLinkCard from './ProductLinkCard.astro';
+
+interface Props {
+  currentProduct: Product;
+}
+
+const { currentProduct } = Astro.props;
+
+const sameCategory = products.filter(
+  (p) => p.name !== currentProduct.name && p.category === currentProduct.category
+);
+const others = products.filter(
+  (p) => p.name !== currentProduct.name && p.category !== currentProduct.category
+);
+const related = [...sameCategory, ...others].slice(0, 4);
+
+const faqs = [
+  {
+    q: 'Qual o material utilizado?',
+    a: 'Trabalhamos principalmente com PLA biodegradável e ABS de alta resistência, sempre selecionados conforme o tipo de peça e seu uso.',
+  },
+  {
+    q: 'Os produtos são personalizáveis?',
+    a: 'Sim! Praticamente todas as nossas peças podem ser personalizadas com nome, iniciais, cores ou logotipo — é só combinar com a gente pelo WhatsApp.',
+  },
+  {
+    q: 'Quais são os prazos de produção e envio?',
+    a: 'A produção sob encomenda leva em média de 3 a 7 dias úteis, e o envio é feito em até 3 dias úteis após a conclusão da peça.',
+  },
+  {
+    q: 'Como funciona o pagamento?',
+    a: 'Fechamos o pedido e o pagamento diretamente pelo WhatsApp, com opções via Pix ou cartão em até 6x sem juros.',
+  },
+  {
+    q: 'Posso trocar ou devolver meu pedido?',
+    a: 'Como cada peça é feita sob encomenda, trocas e devoluções são avaliadas caso a caso — fale com a gente se algo não sair como esperado.',
+  },
+];
+---
+
+<section class="w-full py-8 md:py-16 px-6">
+  <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-[1fr_360px] gap-12">
+    <div class="flex flex-col gap-6 min-w-0">
+      <div class="flex items-center justify-between gap-4">
+        <h2 class="text-grafite text-2xl lg:text-[28px] font-light tracking-[-0.03em] leading-tight">
+          Você também pode <span class="font-semibold text-azul">gostar</span>
+        </h2>
+        {
+          related.length > 0 && (
+            <a href="/produtos" class="shrink-0 text-azul text-sm font-bold hover:opacity-80 transition-opacity">
+              Ver todos →
+            </a>
+          )
+        }
+      </div>
+
+      {
+        related.length > 0 ? (
+          <div class="grid grid-cols-2 sm:grid-cols-4 gap-5">
+            {related.map((p) => <ProductLinkCard {...p} />)}
+          </div>
+        ) : (
+          <p class="text-sm text-grafite/60">Em breve, novos produtos por aqui.</p>
+        )
+      }
+    </div>
+
+    <div class="min-w-0">
+      <h2 class="text-grafite text-2xl lg:text-[28px] font-light tracking-[-0.03em] leading-tight mb-2">
+        Perguntas <span class="font-semibold text-azul">frequentes</span>
+      </h2>
+      <div class="flex flex-col">
+        {
+          faqs.map(({ q, a }, i) => (
+            <details class={`group py-4 ${i !== faqs.length - 1 ? 'border-b border-black/10' : ''}`}>
+              <summary class="flex items-center justify-between gap-4 cursor-pointer list-none">
+                <span class="text-sm font-semibold text-grafite">{q}</span>
+                <svg
+                  class="shrink-0 w-3.5 h-3.5 text-grafite/50 transition-transform group-open:rotate-180"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  viewBox="0 0 24 24"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <p class="text-sm text-grafite/60 leading-relaxed mt-2">{a}</p>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </div>
+</section>

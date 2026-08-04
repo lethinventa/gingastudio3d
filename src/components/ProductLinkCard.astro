@@ -1,0 +1,26 @@
+---
+import type { Product } from '../data/products';
+import { slugify } from '../data/products';
+
+type Props = Product;
+
+const { name, price, image } = Astro.props;
+---
+
+<a href={`/produtos/${slugify(name)}`} class="flex flex-col gap-2.5 group min-w-0">
+  <div class="aspect-square rounded-2xl overflow-hidden bg-[#e8dbbf]">
+    {
+      image && (
+        <img
+          src={image}
+          alt={name}
+          class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-200"
+        />
+      )
+    }
+  </div>
+  <div class="min-w-0">
+    <p class="text-sm font-semibold text-grafite leading-snug truncate">{name}</p>
+    <p class="text-sm font-bold text-terra leading-snug">{price}</p>
+  </div>
+</a>

@@ -1,0 +1,36 @@
+---
+import '@fontsource-variable/onest/wght.css';
+import '../../styles/global.css';
+import Header from '../../components/Header.astro';
+import Catalog from '../../components/Catalog.astro';
+import ProductModal from '../../components/ProductModal.astro';
+import Footer from '../../components/Footer.astro';
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Produtos — Ginga Studio 3D</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="w-full pt-10 md:pt-16 px-6">
+        <div class="max-w-7xl mx-auto">
+          <h1 class="text-grafite text-3xl lg:text-[42px] tracking-[-0.04em] leading-tight">
+            <span class="font-light">Nossos</span> <span class="font-semibold text-azul">produtos</span>
+          </h1>
+          <p class="text-grafite/70 text-sm md:text-base mt-2 max-w-xl">
+            Brindes personalizados feitos sob encomenda, com impressão 3D própria e muito ginga.
+          </p>
+        </div>
+      </section>
+      <Catalog />
+    </main>
+    <ProductModal />
+    <Footer />
+  </body>
+</html>

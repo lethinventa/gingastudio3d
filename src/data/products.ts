@@ -129,3 +129,17 @@ export const products: Product[] = [
 ];
 
 export const featuredProducts = products.slice(0, 4);
+
+export function slugify(value: string): string {
+  return value
+    .normalize('NFD')
+    .replace(/[̀-ͯ]/g, '')
+    .toLowerCase()
+    .trim()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-+|-+$/g, '');
+}
+
+export function getProductBySlug(slug: string): Product | undefined {
+  return products.find((p) => slugify(p.name) === slug);
+}
