@@ -1,0 +1,233 @@
+---
+---
+
+<div id="cart-drawer" class="fixed inset-0 z-[60] pointer-events-none" aria-hidden="true">
+  <div
+    id="cart-drawer-backdrop"
+    class="absolute inset-0 bg-[rgba(13,13,13,0.49)] backdrop-blur-sm opacity-0 transition-opacity duration-300"
+  >
+  </div>
+
+  <div
+    id="cart-drawer-panel"
+    class="absolute top-0 right-0 h-full w-full sm:w-[360px] bg-white border-l border-black/10 flex flex-col translate-x-full transition-transform duration-300 ease-out"
+    role="dialog"
+    aria-modal="true"
+    aria-label="Carrinho de compras"
+  >
+    <div class="border-b border-black/10 flex items-center justify-between px-6 py-5 shrink-0">
+      <h2 class="flex items-center gap-2">
+        <span class="font-bold text-xl text-grafite">Carrinho</span>
+        <span id="cart-drawer-count" class="text-sm text-grafite/60">(0)</span>
+      </h2>
+      <button
+        id="cart-drawer-close"
+        type="button"
+        aria-label="Fechar carrinho"
+        class="p-2 rounded-2xl hover:bg-black/5 transition-colors cursor-pointer"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"></path>
+        </svg>
+      </button>
+    </div>
+
+    <div id="cart-drawer-clear-row" class="px-6 pt-3 flex justify-end shrink-0" style="display:none">
+      <button
+        id="cart-drawer-clear"
+        type="button"
+        class="inline-flex items-center gap-1.5 text-grafite/60 text-xs hover:text-terra transition-colors cursor-pointer"
+      >
+        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0-1 14a2 2 0 01-2 2H7a2 2 0 01-2-2L4 6h16z"
+          ></path>
+        </svg>
+        Esvaziar carrinho
+      </button>
+    </div>
+
+    <div id="cart-drawer-items" class="flex-1 min-h-0 overflow-y-auto px-6 py-5 flex flex-col gap-5"></div>
+
+    <div
+      id="cart-drawer-empty"
+      class="flex-1 min-h-0 flex flex-col items-center justify-center gap-3 px-6 text-center"
+      style="display:none"
+    >
+      <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" class="text-grafite/30">
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          d="M6 6h15l-1.5 9h-12z M6 6L5 3H2 M9 20a1 1 0 100-2 1 1 0 000 2z M18 20a1 1 0 100-2 1 1 0 000 2z"
+        ></path>
+      </svg>
+      <p class="text-grafite/60 text-sm">Seu carrinho está vazio.</p>
+    </div>
+
+    <div class="border-t border-black/10 bg-creme px-6 pt-3 pb-5 shrink-0">
+      <div class="flex items-center justify-between font-bold text-lg pt-3">
+        <span class="text-grafite">Total</span>
+        <span id="cart-drawer-total" class="text-azul">R$ 0,00</span>
+      </div>
+      <button
+        id="cart-drawer-checkout"
+        type="button"
+        class="mt-3.5 w-full bg-azul text-white font-bold text-sm py-4 rounded-2xl flex items-center justify-center gap-2.5 hover:opacity-90 transition-opacity disabled:opacity-40 disabled:pointer-events-none cursor-pointer"
+      >
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+          <path
+            d="M12 2C6.48 2 2 6.48 2 12c0 1.85.5 3.58 1.38 5.07L2 22l5.06-1.33A9.94 9.94 0 0012 22c5.52 0 10-4.48 10-10S17.52 2 12 2zm0 18a7.9 7.9 0 01-4.03-1.1l-.29-.17-3 .79.8-2.92-.19-.3A7.93 7.93 0 014 12c0-4.41 3.59-8 8-8s8 3.59 8 8-3.59 8-8 8zm4.4-5.98c-.24-.12-1.43-.7-1.65-.79-.22-.08-.38-.12-.55.12-.16.24-.63.79-.77.95-.14.16-.28.18-.52.06-.24-.12-1.01-.37-1.92-1.18-.71-.63-1.19-1.41-1.33-1.65-.14-.24-.02-.37.1-.49.11-.11.24-.28.36-.42.12-.14.16-.24.24-.4.08-.16.04-.3-.02-.42-.06-.12-.55-1.32-.75-1.81-.2-.48-.4-.41-.55-.42h-.47c-.16 0-.42.06-.64.3-.22.24-.84.82-.84 2s.86 2.32.98 2.48c.12.16 1.7 2.6 4.13 3.64.58.25 1.03.4 1.38.51.58.18 1.11.16 1.53.1.47-.07 1.43-.58 1.63-1.15.2-.57.2-1.05.14-1.15-.06-.1-.22-.16-.46-.28z"
+          ></path>
+        </svg>
+        Finalizar pelo WhatsApp
+      </button>
+      <p class="text-grafite/60 text-[10px] text-center leading-relaxed mt-3.5">
+        Você será redirecionado ao WhatsApp com seu pedido pronto para enviar.
+      </p>
+    </div>
+  </div>
+</div>
+
+<script>
+  import {
+    getCart,
+    updateQty,
+    removeFromCart,
+    clearCart,
+    getCartCount,
+    getCartTotal,
+    buildWhatsAppUrl,
+    type CartItem,
+  } from '../lib/cart';
+  import { formatBRL, parsePrice } from '../lib/format';
+
+  const drawer = document.getElementById('cart-drawer')!;
+  const backdrop = document.getElementById('cart-drawer-backdrop')!;
+  const panel = document.getElementById('cart-drawer-panel')!;
+  const closeBtn = document.getElementById('cart-drawer-close')!;
+  const clearRow = document.getElementById('cart-drawer-clear-row')!;
+  const clearBtn = document.getElementById('cart-drawer-clear')!;
+  const itemsEl = document.getElementById('cart-drawer-items')!;
+  const emptyEl = document.getElementById('cart-drawer-empty')!;
+  const countEl = document.getElementById('cart-drawer-count')!;
+  const totalEl = document.getElementById('cart-drawer-total')!;
+  const checkoutBtn = document.getElementById('cart-drawer-checkout') as HTMLButtonElement;
+
+  const itemRowTemplate = `
+    <div class="w-17 h-17 rounded-2xl bg-[#e8e3d8] overflow-hidden shrink-0"></div>
+    <div class="flex-1 min-w-0 flex flex-col justify-between gap-2.5">
+      <p class="cart-item-name font-bold text-sm text-grafite leading-tight truncate"></p>
+      <div class="flex items-center justify-between gap-2">
+        <div class="inline-flex items-center border border-black/10 rounded-2xl">
+          <button type="button" class="cart-qty-minus w-7 h-7 flex items-center justify-center text-grafite hover:text-azul transition-colors cursor-pointer" aria-label="Diminuir quantidade">
+            <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.91667 7H11.0833" stroke="currentColor" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
+          <span class="cart-item-qty w-8 text-center text-xs font-medium text-grafite"></span>
+          <button type="button" class="cart-qty-plus w-7 h-7 flex items-center justify-center text-grafite hover:text-azul transition-colors cursor-pointer" aria-label="Aumentar quantidade">
+            <svg width="11" height="11" viewBox="0 0 14 14" fill="none"><path d="M2.91667 7H11.0833" stroke="currentColor" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"></path><path d="M7 2.91667V11.0833" stroke="currentColor" stroke-width="1.16667" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+          </button>
+        </div>
+        <div class="flex items-center gap-2.5">
+          <span class="cart-item-price font-semibold text-sm text-azul"></span>
+          <button type="button" class="cart-item-remove text-grafite/50 hover:text-terra transition-colors cursor-pointer" aria-label="Remover item">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path stroke-linecap="round" stroke-linejoin="round" d="M3 6h18M8 6V4a2 2 0 012-2h4a2 2 0 012 2v2m3 0-1 14a2 2 0 01-2 2H7a2 2 0 01-2-2L4 6h16z"></path></svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  `;
+
+  function createItemRow(item: CartItem): HTMLElement {
+    const row = document.createElement('div');
+    row.className = 'flex gap-4 pb-5 border-b border-black/10 last:border-b-0 last:pb-0';
+    row.dataset.slug = item.slug;
+    row.innerHTML = itemRowTemplate;
+
+    const imageEl = row.querySelector('.w-17') as HTMLDivElement;
+    if (item.image) {
+      const img = document.createElement('img');
+      img.src = item.image;
+      img.alt = item.name;
+      img.className = 'w-full h-full object-cover';
+      imageEl.appendChild(img);
+    }
+
+    (row.querySelector('.cart-item-name') as HTMLElement).textContent = item.name;
+    (row.querySelector('.cart-item-qty') as HTMLElement).textContent = String(item.qty);
+    (row.querySelector('.cart-item-price') as HTMLElement).textContent = formatBRL(
+      parsePrice(item.price) * item.qty,
+    );
+
+    row.querySelector('.cart-qty-minus')!.addEventListener('click', () => {
+      updateQty(item.slug, item.qty - 1);
+    });
+    row.querySelector('.cart-qty-plus')!.addEventListener('click', () => {
+      updateQty(item.slug, item.qty + 1);
+    });
+    row.querySelector('.cart-item-remove')!.addEventListener('click', () => {
+      removeFromCart(item.slug);
+    });
+
+    return row;
+  }
+
+  function render() {
+    const items = getCart();
+    countEl.textContent = `(${getCartCount(items)})`;
+    totalEl.textContent = formatBRL(getCartTotal(items));
+    checkoutBtn.disabled = items.length === 0;
+
+    itemsEl.innerHTML = '';
+    if (items.length === 0) {
+      itemsEl.style.display = 'none';
+      emptyEl.style.display = 'flex';
+      clearRow.style.display = 'none';
+    } else {
+      itemsEl.style.display = 'flex';
+      emptyEl.style.display = 'none';
+      clearRow.style.display = 'flex';
+      items.forEach((item) => itemsEl.appendChild(createItemRow(item)));
+    }
+  }
+
+  function openDrawer() {
+    render();
+    drawer.classList.remove('pointer-events-none');
+    drawer.setAttribute('aria-hidden', 'false');
+    backdrop.classList.remove('opacity-0');
+    panel.classList.remove('translate-x-full');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeDrawer() {
+    backdrop.classList.add('opacity-0');
+    panel.classList.add('translate-x-full');
+    drawer.classList.add('pointer-events-none');
+    drawer.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  closeBtn.addEventListener('click', closeDrawer);
+  backdrop.addEventListener('click', closeDrawer);
+  clearBtn.addEventListener('click', () => clearCart());
+
+  checkoutBtn.addEventListener('click', () => {
+    const items = getCart();
+    if (items.length === 0) return;
+    const url = buildWhatsAppUrl(items);
+    clearCart();
+    closeDrawer();
+    window.open(url, '_blank', 'noopener,noreferrer');
+  });
+
+  window.addEventListener('cart:updated', render);
+  window.addEventListener('cart:open', openDrawer);
+
+  document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') closeDrawer();
+  });
+
+  render();
+</script>

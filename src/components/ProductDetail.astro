@@ -176,6 +176,7 @@ const badges = [
           <button
             id="add-to-cart-btn"
             type="button"
+            data-product={JSON.stringify({ name, price, image: images[0] ?? '' })}
             class="w-full bg-azul text-creme font-bold text-sm py-4 rounded-2xl flex items-center justify-center gap-2.5 hover:opacity-90 transition-opacity"
           >
             <span id="add-to-cart-label">Adicionar ao carrinho</span>
@@ -237,6 +238,9 @@ const badges = [
 </style>
 
 <script>
+  import { addToCart, openCart } from '../lib/cart';
+  import { slugify } from '../data/products';
+
   const mainImage = document.getElementById('gallery-main-image') as HTMLImageElement | null;
   const thumbs = document.querySelectorAll<HTMLButtonElement>('.gallery-thumb');
 
@@ -263,11 +267,20 @@ const badges = [
   const addToCartLabel = document.getElementById('add-to-cart-label')!;
 
   addToCartBtn.addEventListener('click', () => {
+    const product = JSON.parse(addToCartBtn.dataset.product!) as {
+      name: string;
+      price: string;
+      image: string;
+    };
+    addToCart({ slug: slugify(product.name), name: product.name, price: product.price, image: product.image }, quantity);
+
     const original = addToCartLabel.textContent;
     addToCartLabel.textContent = 'Adicionado ✓';
     setTimeout(() => {
       addToCartLabel.textContent = original;
     }, 1500);
+
+    openCart();
   });
 
   const wishlistBtn = document.getElementById('wishlist-btn')!;

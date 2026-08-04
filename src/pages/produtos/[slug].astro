@@ -5,6 +5,7 @@ import Header from '../../components/Header.astro';
 import ProductDetail from '../../components/ProductDetail.astro';
 import ProductExtras from '../../components/ProductExtras.astro';
 import ProductWhatsAppCTA from '../../components/ProductWhatsAppCTA.astro';
+import CartDrawer from '../../components/CartDrawer.astro';
 import Footer from '../../components/Footer.astro';
 import { products, slugify } from '../../data/products';
 import type { Product } from '../../data/products';
@@ -38,6 +39,7 @@ const { product } = Astro.props;
       <ProductExtras currentProduct={product} />
       <ProductWhatsAppCTA />
     </main>
+    <CartDrawer />
     <Footer />
   </body>
 </html>

@@ -28,10 +28,17 @@ const navLinks = [
 
     <div class="flex items-center gap-2">
       <button
+        id="cart-button"
+        type="button"
         aria-label="Carrinho de compras"
-        class="p-2 rounded-full hover:bg-black/5 transition-colors cursor-pointer"
+        class="relative p-2 rounded-full hover:bg-black/5 transition-colors cursor-pointer"
       >
         <img src="/icon-cart.svg" alt="" aria-hidden="true" class="w-[22px] h-[22px]" />
+        <span
+          id="cart-count-badge"
+          class="absolute top-0 right-0 min-w-4 h-4 px-1 rounded-full bg-terra text-white text-[10px] font-bold items-center justify-center"
+          style="display:none"
+        ></span>
       </button>
 
       <button
@@ -82,6 +89,8 @@ const navLinks = [
 </header>
 
 <script>
+  import { getCartCount, openCart } from '../lib/cart';
+
   const toggle = document.getElementById('menu-toggle')!;
   const menu = document.getElementById('mobile-menu')!;
   const iconHamburger = document.getElementById('icon-hamburger')!;
@@ -94,4 +103,17 @@ const navLinks = [
     iconClose.classList.toggle('hidden', isOpen);
     toggle.setAttribute('aria-expanded', String(!isOpen));
   });
+
+  const cartButton = document.getElementById('cart-button')!;
+  const cartBadge = document.getElementById('cart-count-badge')!;
+
+  function updateCartBadge() {
+    const count = getCartCount();
+    cartBadge.textContent = String(count);
+    cartBadge.style.display = count > 0 ? 'inline-flex' : 'none';
+  }
+
+  cartButton.addEventListener('click', openCart);
+  window.addEventListener('cart:updated', updateCartBadge);
+  updateCartBadge();
 </script>
