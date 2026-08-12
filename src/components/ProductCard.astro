@@ -1,15 +1,14 @@
 ---
 import type { Product } from '../data/products';
+import { slugify } from '../data/products';
 
 type Props = Product;
 
-const { name, price, category, image, ...rest } = Astro.props;
-const productData = JSON.stringify({ name, price, category, image, ...rest });
+const { name, price, category, image } = Astro.props;
 ---
 
-<button
-  type="button"
-  data-product={productData}
+<a
+  href={`/produtos/${slugify(name)}`}
   class="bg-creme border border-[#f4d4c6] rounded-3xl overflow-hidden flex flex-col min-w-0 w-full text-left cursor-pointer transition-[border-color,transform] duration-200 hover:border-terra hover:rotate-2"
 >
   <div class="relative h-44 w-full bg-[#e8dbbf] shrink-0">
@@ -26,4 +25,4 @@ const productData = JSON.stringify({ name, price, category, image, ...rest });
     <p class="font-bold text-base text-grafite leading-snug">{name}</p>
     <p class="font-bold text-lg text-terra leading-snug">{price}</p>
   </div>
-</button>
+</a>
