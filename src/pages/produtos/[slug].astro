@@ -4,7 +4,7 @@ import '../../styles/global.css';
 import Header from '../../components/Header.astro';
 import ProductDetail from '../../components/ProductDetail.astro';
 import ProductExtras from '../../components/ProductExtras.astro';
-import ProductWhatsAppCTA from '../../components/ProductWhatsAppCTA.astro';
+import Banner2 from '../../components/Banner2.astro';
 import CartDrawer from '../../components/CartDrawer.astro';
 import Footer from '../../components/Footer.astro';
 import { products, slugify } from '../../data/products';
@@ -37,7 +37,7 @@ const { product } = Astro.props;
     <main>
       <ProductDetail product={product} />
       <ProductExtras currentProduct={product} />
-      <ProductWhatsAppCTA />
+      <Banner2 />
     </main>
     <CartDrawer />
     <Footer />
