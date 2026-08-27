@@ -27,13 +27,13 @@ const steps = [
   <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
     {steps.map(({ number, title, body }, i) => (
       <div
-        class="how-card group bg-azul rounded-3xl p-7 flex flex-col gap-8 cursor-default"
+        class="how-card bg-azul rounded-3xl p-7 flex flex-col gap-8 cursor-default"
         style={`transition-delay: ${i * 100}ms`}
       >
         <span class="how-card__number text-sm font-light text-white/50">{number}</span>
         <div class="flex flex-col gap-2">
-          <h3 class="font-bold text-white text-xl leading-snug">{title}</h3>
-          <p class="text-white/70 text-sm leading-relaxed">{body}</p>
+          <h3 class="how-card__title font-bold text-white text-xl leading-snug">{title}</h3>
+          <p class="how-card__body text-white/70 text-sm leading-relaxed">{body}</p>
         </div>
       </div>
     ))}
@@ -47,7 +47,7 @@ const steps = [
     transition:
       opacity 0.6s ease,
       transform 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-      box-shadow 0.35s ease;
+      background-color 0.3s ease;
   }
 
   .how-card.is-visible {
@@ -56,20 +56,26 @@ const steps = [
   }
 
   .how-card:hover {
-    transform: translateY(-8px) scale(1.02);
-    box-shadow: 0 20px 40px -12px color-mix(in oklch, var(--color-azul) 55%, transparent);
+    background-color: var(--color-creme);
+    transform: rotate(2deg);
   }
 
-  .how-card__number {
-    display: inline-block;
-    transition:
-      color 0.35s ease,
-      transform 0.35s ease;
+  .how-card__number,
+  .how-card__title,
+  .how-card__body {
+    transition: color 0.3s ease;
   }
 
   .how-card:hover .how-card__number {
-    color: color-mix(in oklch, white 90%, transparent);
-    transform: translateY(-2px);
+    color: var(--color-terra);
+  }
+
+  .how-card:hover .how-card__title {
+    color: var(--color-grafite);
+  }
+
+  .how-card:hover .how-card__body {
+    color: color-mix(in oklch, var(--color-grafite) 80%, transparent);
   }
 
   @media (prefers-reduced-motion: reduce) {
