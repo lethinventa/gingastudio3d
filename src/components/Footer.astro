@@ -2,16 +2,16 @@
 const navLinks = [
   { label: 'Início', href: '/' },
   { label: 'Produtos', href: '/produtos' },
-  { label: 'Serviços', href: '/servicos' },
-  { label: 'Sobre', href: '/sobre' },
-  { label: 'Contato', href: '/contato' },
+  { label: 'Serviços', href: '/produtos' },
+  { label: 'Sobre', href: '/#sobre' },
+  { label: 'Contato', href: '/#contato' },
 ];
 
 const helpLinks = [
-  { label: 'Perguntas frequentes', href: '/404' },
-  { label: 'Prazos e envios', href: '/404' },
-  { label: 'Trocas e devoluções', href: '/404' },
-  { label: 'Política de privacidade', href: '/404' },
+  { label: 'Perguntas frequentes', href: '/#sobre' },
+  { label: 'Prazos e envios', href: '/#como-funciona' },
+  { label: 'Trocas e devoluções', href: '/#contato' },
+  { label: 'Política de privacidade', href: '/politica-de-privacidade' },
 ];
 ---
 
@@ -53,7 +53,7 @@ const helpLinks = [
         <p class="text-grafite font-semibold text-sm">Nos acompanhe</p>
         <div class="flex gap-3">
           <a
-            href="/404"
+            href="/"
             aria-label="Instagram"
             class="w-9 h-9 rounded-full border border-black/15 flex items-center justify-center text-grafite hover:border-azul hover:text-azul transition-colors"
           >
@@ -64,7 +64,7 @@ const helpLinks = [
             </svg>
           </a>
           <a
-            href="/404"
+            href="/"
             aria-label="TikTok"
             class="w-9 h-9 rounded-full border border-black/15 flex items-center justify-center text-grafite hover:border-azul hover:text-azul transition-colors"
           >
