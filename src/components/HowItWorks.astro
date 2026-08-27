@@ -27,13 +27,13 @@ const steps = [
   <div class="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
     {steps.map(({ number, title, body }, i) => (
       <div
-        class="how-card bg-azul rounded-3xl p-7 flex flex-col gap-8 cursor-default"
+        class="how-card bg-creme rounded-3xl p-7 flex flex-col gap-8 cursor-default"
         style={`transition-delay: ${i * 100}ms`}
       >
-        <span class="how-card__number text-sm font-light text-white/50">{number}</span>
+        <span class="how-card__number text-sm font-light text-terra">{number}</span>
         <div class="flex flex-col gap-2">
-          <h3 class="how-card__title font-bold text-white text-xl leading-snug">{title}</h3>
-          <p class="how-card__body text-white/70 text-sm leading-relaxed">{body}</p>
+          <h3 class="how-card__title font-bold text-grafite text-xl leading-snug">{title}</h3>
+          <p class="how-card__body text-grafite/70 text-sm leading-relaxed">{body}</p>
         </div>
       </div>
     ))}
@@ -56,7 +56,7 @@ const steps = [
   }
 
   .how-card:hover {
-    background-color: var(--color-creme);
+    background-color: var(--color-azul);
     transform: rotate(2deg);
   }
 
@@ -67,15 +67,15 @@ const steps = [
   }
 
   .how-card:hover .how-card__number {
-    color: var(--color-terra);
+    color: color-mix(in oklch, white 50%, transparent);
   }
 
   .how-card:hover .how-card__title {
-    color: var(--color-grafite);
+    color: white;
   }
 
   .how-card:hover .how-card__body {
-    color: color-mix(in oklch, var(--color-grafite) 80%, transparent);
+    color: color-mix(in oklch, white 70%, transparent);
   }
 
   @media (prefers-reduced-motion: reduce) {
