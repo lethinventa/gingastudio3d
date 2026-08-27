@@ -1,0 +1,158 @@
+---
+import '@fontsource-variable/onest/wght.css';
+import '../styles/global.css';
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Página não encontrada — Ginga Studio 3D</title>
+  </head>
+  <body class="bg-white min-h-screen flex flex-col items-center justify-center gap-10 px-6 py-16 text-center">
+    <a href="/" aria-label="Ginga Studio 3D">
+      <img src="/logo.png" alt="Ginga Studio 3D" class="h-10 w-auto" />
+    </a>
+
+    <div class="pond relative w-full max-w-sm h-36 overflow-hidden">
+      <div class="bubble bubble--a"></div>
+      <div class="bubble bubble--b"></div>
+      <div class="bubble bubble--c"></div>
+
+      <div class="fish-swim absolute top-1/2">
+        <div class="fish-wag">
+          <svg width="72" height="48" viewBox="0 0 72 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M4 24C4 14 20 6 38 6C52 6 62 14 66 24C62 34 52 42 38 42C20 42 4 34 4 24Z"
+              fill="var(--color-azul)"
+            />
+            <path
+              d="M66 24L72 12V36L66 24Z"
+              fill="var(--color-azul)"
+            />
+            <circle cx="46" cy="19" r="2.6" fill="var(--color-creme)" />
+          </svg>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex flex-col gap-3">
+      <h1 class="text-grafite text-3xl md:text-4xl font-semibold tracking-[-0.04em]">
+        Nada por aqui.
+      </h1>
+      <p class="text-grafite/70 text-sm leading-relaxed max-w-xs mx-auto">
+        A página que você procura não existe ou nadou para outro lugar.
+      </p>
+    </div>
+
+    <a
+      href="/"
+      class="bg-azul text-creme font-bold text-sm px-6 py-3 rounded-full hover:opacity-90 transition-opacity"
+    >
+      Vá para o início
+    </a>
+  </body>
+</html>
+
+<style>
+  .pond {
+    -webkit-mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(90deg, transparent, black 8%, black 92%, transparent);
+  }
+
+  .fish-swim {
+    left: -15%;
+    animation: swim 7s ease-in-out infinite;
+  }
+
+  .fish-wag {
+    animation: wag 0.9s ease-in-out infinite;
+    transform-origin: 50% 50%;
+  }
+
+  @keyframes swim {
+    0% {
+      transform: translate(0, -6px);
+    }
+    25% {
+      transform: translate(85px, 10px);
+    }
+    50% {
+      transform: translate(170px, -10px);
+    }
+    75% {
+      transform: translate(255px, 8px);
+    }
+    100% {
+      transform: translate(340px, -6px);
+    }
+  }
+
+  @keyframes wag {
+    0%,
+    100% {
+      transform: rotate(-6deg);
+    }
+    50% {
+      transform: rotate(6deg);
+    }
+  }
+
+  .bubble {
+    position: absolute;
+    bottom: 10px;
+    width: 6px;
+    height: 6px;
+    border-radius: 9999px;
+    background: color-mix(in oklch, var(--color-azul) 25%, transparent);
+    animation: rise 3.4s ease-in infinite;
+  }
+
+  .bubble--a {
+    left: 30%;
+    animation-delay: 0s;
+  }
+
+  .bubble--b {
+    left: 55%;
+    width: 4px;
+    height: 4px;
+    animation-delay: 1.1s;
+  }
+
+  .bubble--c {
+    left: 70%;
+    width: 5px;
+    height: 5px;
+    animation-delay: 2.1s;
+  }
+
+  @keyframes rise {
+    0% {
+      transform: translateY(0);
+      opacity: 0;
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(-90px);
+      opacity: 0;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .fish-swim,
+    .fish-wag,
+    .bubble {
+      animation: none;
+    }
+
+    .fish-swim {
+      left: 50%;
+      transform: translateX(-50%);
+    }
+  }
+</style>
