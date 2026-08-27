@@ -98,18 +98,6 @@ export const products: Product[] = [
     badges: defaultBadges('PLA'),
   },
   {
-    name: 'Porta Anel Premium - 50 UND',
-    price: 'R$ 845,00',
-    category: 'Chaveiro',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 50 porta-anéis premium pra academia — potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis em segurança durante o treino. Melhor custo por unidade, indicado pra lojistas de artigos esportivos.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 50 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
     name: 'Ponteira Lápis - 10 UND',
     price: 'R$ 28,00',
     category: 'Utilidades',
@@ -130,18 +118,6 @@ export const products: Product[] = [
     specs: {
       'Materiais': 'PLA',
       'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Ponteira Lápis - 50 UND',
-    price: 'R$ 119,00',
-    category: 'Utilidades',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 50 ponteiras de lápis em PLA, melhor custo por unidade. Indicado pra revenda ou produção contínua de kits de papelaria.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 50 unidades',
     },
     badges: defaultBadges('PLA'),
   },
@@ -170,18 +146,6 @@ export const products: Product[] = [
     badges: defaultBadges('PLA'),
   },
   {
-    name: 'Suporte Celular Personalizado - 50 UND',
-    price: 'R$ 749,00',
-    category: 'Utilidades',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 50 suportes de celular em PLA, melhor custo por unidade. Indicado pra lojistas e produção recorrente de brindes personalizados.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 50 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
     name: 'Porta Anel Kettlebell - 10 UND',
     price: 'R$ 147,00',
     category: 'Chaveiro',
@@ -202,18 +166,6 @@ export const products: Product[] = [
     specs: {
       'Materiais': 'PLA',
       'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Porta Anel Kettlebell - 50 UND',
-    price: 'R$ 636,00',
-    category: 'Chaveiro',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 50 porta-anéis kettlebell pra academia, melhor custo por unidade. Indicado pra lojistas de artigos esportivos.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 50 unidades',
     },
     badges: defaultBadges('PLA'),
   },
@@ -242,18 +194,6 @@ export const products: Product[] = [
     badges: defaultBadges('PLA'),
   },
   {
-    name: 'Suporte Foto Flor - 50 UND',
-    price: 'R$ 394,00',
-    category: 'Utilidades',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 50 suportes de foto flor em PLA, melhor custo por unidade. Indicado pra lojistas e produção recorrente.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 50 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
     name: 'Porta Guardanapo Logo - 10 UND',
     price: 'R$ 91,00',
     category: 'Mesa posta',
@@ -274,18 +214,6 @@ export const products: Product[] = [
     specs: {
       'Materiais': 'PLA',
       'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Porta Guardanapo Logo - 50 UND',
-    price: 'R$ 394,00',
-    category: 'Mesa posta',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 50 porta-guardanapos com logo em PLA, melhor custo por unidade. Indicado pra lojistas e buffets/eventos corporativos.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 50 unidades',
     },
     badges: defaultBadges('PLA'),
   },
@@ -314,18 +242,6 @@ export const products: Product[] = [
     badges: defaultBadges('PLA'),
   },
   {
-    name: 'Chaveiro Logo Vazado - 50 UND',
-    price: 'R$ 427,00',
-    category: 'Corporativo',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 50 chaveiros vazados com logo em PLA, melhor custo por unidade. Indicado pra grandes ações corporativas.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 50 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
     name: 'Organizador de Cabos Logo - 10 UND',
     price: 'R$ 100,00',
     category: 'Corporativo',
@@ -346,18 +262,6 @@ export const products: Product[] = [
     specs: {
       'Materiais': 'PLA',
       'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Organizador de Cabos Logo - 50 UND',
-    price: 'R$ 430,00',
-    category: 'Corporativo',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 50 organizadores de cabos com logo, melhor custo por unidade. Indicado pra grandes ações corporativas.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 50 unidades',
     },
     badges: defaultBadges('PLA'),
   },
