@@ -1,0 +1,84 @@
+---
+import '@fontsource-variable/onest/wght.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Footer from '../components/Footer.astro';
+
+const sections = [
+  {
+    title: '1. Quem somos',
+    body: 'A Ginga Studio 3D é um estúdio de impressão 3D baseado em Natal/RN que produz brindes e produtos personalizados sob encomenda. Esta página explica quais dados coletamos quando você visita este site ou faz um pedido, e como usamos essas informações.',
+  },
+  {
+    title: '2. Quais dados coletamos',
+    body: 'Este site não possui cadastro de usuário nem cobrança online. Os únicos dados tratados são: os itens que você adiciona ao carrinho de compras, salvos apenas no seu próprio navegador (não enviados aos nossos servidores); e as informações que você mesmo escolhe compartilhar ao finalizar um pedido pelo WhatsApp, como nome, endereço de entrega e forma de pagamento combinada diretamente na conversa.',
+  },
+  {
+    title: '3. Como usamos essas informações',
+    body: 'Usamos os dados enviados pelo WhatsApp exclusivamente para confirmar, produzir e entregar o seu pedido. Não usamos essas informações para envio de propaganda não solicitada, nem as vendemos ou compartilhamos com terceiros para fins comerciais.',
+  },
+  {
+    title: '4. Carrinho de compras e armazenamento local',
+    body: 'Os produtos que você adiciona ao carrinho ficam salvos localmente no seu navegador (localStorage), apenas no seu dispositivo. Essa informação não é acessada por nós e é apagada se você limpar os dados do navegador ou usar outro dispositivo.',
+  },
+  {
+    title: '5. Compartilhamento com terceiros',
+    body: 'Ao finalizar um pedido, você é redirecionado para uma conversa no WhatsApp (serviço da Meta). A partir desse momento, o tratamento das suas mensagens segue a política de privacidade do próprio WhatsApp. Não utilizamos ferramentas de rastreamento, publicidade ou analytics neste site.',
+  },
+  {
+    title: '6. Seus direitos',
+    body: 'De acordo com a Lei Geral de Proteção de Dados (LGPD), você pode solicitar a qualquer momento a confirmação, correção ou exclusão de dados pessoais que tenha nos enviado por WhatsApp, entrando em contato diretamente pelo mesmo canal.',
+  },
+  {
+    title: '7. Alterações nesta política',
+    body: 'Podemos atualizar esta política de tempos em tempos para refletir mudanças no funcionamento do site. A data da última atualização está indicada no fim desta página.',
+  },
+  {
+    title: '8. Contato',
+    body: 'Dúvidas sobre privacidade e uso de dados podem ser enviadas diretamente pelo nosso WhatsApp.',
+  },
+];
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Política de Privacidade — Ginga Studio 3D</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="w-full pt-10 md:pt-16 px-6">
+        <div class="max-w-3xl mx-auto">
+          <h1 class="text-grafite text-3xl lg:text-[42px] tracking-[-0.04em] leading-tight">
+            <span class="font-light">Política de</span> <span class="font-semibold text-azul">privacidade</span>
+          </h1>
+          <p class="text-grafite/70 text-sm md:text-base mt-2">
+            Como a Ginga Studio 3D trata as informações de quem visita o site e faz pedidos.
+          </p>
+        </div>
+      </section>
+
+      <section class="w-full py-8 md:py-12 px-6">
+        <div class="max-w-3xl mx-auto flex flex-col gap-8">
+          {sections.map(({ title, body }) => (
+            <div class="flex flex-col gap-2">
+              <h2 class="text-grafite font-semibold text-lg">{title}</h2>
+              <p class="text-grafite/80 text-sm leading-relaxed">{body}</p>
+            </div>
+          ))}
+
+          <p class="text-grafite/50 text-xs pt-4 border-t border-black/8">
+            Última atualização: agosto de 2026.
+          </p>
+        </div>
+      </section>
+    </main>
+    <CartDrawer />
+    <Footer />
+  </body>
+</html>
