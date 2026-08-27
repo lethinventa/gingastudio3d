@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1932 1932">
+  <rect width="1932" height="1932" fill="#e2e2e2"/>
+  <g transform="translate(966 966)">
+    <path
+      d="M -305 0
+         C -260 -110 -120 -170 20 -170
+         C 170 -170 300 -100 380 0
+         C 300 100 170 170 20 170
+         C -120 170 -260 110 -305 0
+         Z"
+      fill="#fdf8ec"
+    />
+    <path
+      d="M 380 0
+         L 520 -95
+         C 540 -55 540 55 520 95
+         Z"
+      fill="#fdf8ec"
+    />
+    <circle cx="-215" cy="-15" r="30" fill="#c9c9c9"/>
+    <g fill="none" stroke="#c9c9c9" stroke-width="10" stroke-linecap="round">
+      <path d="M -110 -95 C -80 -55 -80 55 -110 95"/>
+      <path d="M -20 -95 C 10 -55 10 55 -20 95"/>
+      <path d="M 70 -95 C 100 -55 100 55 70 95"/>
+      <path d="M 160 -95 C 190 -55 190 55 160 95"/>
+    </g>
+  </g>
+</svg>

@@ -41,6 +41,7 @@ export const products: Product[] = [
     name: 'Porta Anel Simples - 10 UND',
     price: 'R$ 140,00',
     category: 'Chaveiro',
+    image: '/produto-sem-imagem.svg',
     description: 'Porta-anel para academia: potinho com tampa rosqueável que prende no chaveiro, ideal pra guardar aliança, anéis ou brincos com segurança durante o treino. Lote de 10 unidades, ideal pra revenda em academias e lojas de artigos esportivos.',
     specs: {
       'Materiais': 'PLA',
@@ -52,6 +53,7 @@ export const products: Product[] = [
     name: 'Abridor de Latas Boca - 10 UND',
     price: 'R$ 106,00',
     category: 'Abridor lata',
+    image: '/produto-sem-imagem.svg',
     description: 'Abridor de latas em PLA com boca ergonômica, resistente e fácil de usar no dia a dia. Lote de 10 unidades, ideal pra revenda em utilidades domésticas.',
     specs: {
       'Materiais': 'PLA',
@@ -63,6 +65,7 @@ export const products: Product[] = [
     name: 'Abridor de Latas Boca - 25 UND',
     price: 'R$ 245,00',
     category: 'Abridor lata',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 25 abridores de latas boca em PLA, com preço reduzido por volume. Indicado pra lojistas e produção recorrente.',
     specs: {
       'Materiais': 'PLA',
@@ -74,6 +77,7 @@ export const products: Product[] = [
     name: 'Porta Anel Premium - 10 UND',
     price: 'R$ 195,00',
     category: 'Chaveiro',
+    image: '/produto-sem-imagem.svg',
     description: 'Porta-anel premium para academia: potinho com tampa rosqueável e acabamento reforçado, prende no chaveiro pra guardar aliança/anéis em segurança durante o treino. Kit com 10 unidades, pronto pra gravação a laser ou adesivo personalizado.',
     specs: {
       'Materiais': 'PLA',
@@ -85,6 +89,7 @@ export const products: Product[] = [
     name: 'Porta Anel Premium - 25 UND',
     price: 'R$ 450,00',
     category: 'Chaveiro',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote fechado de 25 porta-anéis premium pra academia — potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis durante o treino. Opção certa pra quem revende em academias ou personaliza em escala.',
     specs: {
       'Materiais': 'PLA',
@@ -96,6 +101,7 @@ export const products: Product[] = [
     name: 'Porta Anel Premium - 50 UND',
     price: 'R$ 845,00',
     category: 'Chaveiro',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 50 porta-anéis premium pra academia — potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis em segurança durante o treino. Melhor custo por unidade, indicado pra lojistas de artigos esportivos.',
     specs: {
       'Materiais': 'PLA',
@@ -107,6 +113,7 @@ export const products: Product[] = [
     name: 'Ponteira Lápis - 10 UND',
     price: 'R$ 28,00',
     category: 'Utilidades',
+    image: '/produto-sem-imagem.svg',
     description: 'Ponteira de lápis em PLA, prática pra personalizar kits escolares ou brindes de papelaria. Kit com 10 unidades.',
     specs: {
       'Materiais': 'PLA',
@@ -118,6 +125,7 @@ export const products: Product[] = [
     name: 'Ponteira Lápis - 25 UND',
     price: 'R$ 64,00',
     category: 'Utilidades',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 25 ponteiras de lápis em PLA com preço reduzido por volume, ideal pra quem monta kits de papelaria personalizados em escala.',
     specs: {
       'Materiais': 'PLA',
@@ -129,6 +137,7 @@ export const products: Product[] = [
     name: 'Ponteira Lápis - 50 UND',
     price: 'R$ 119,00',
     category: 'Utilidades',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 50 ponteiras de lápis em PLA, melhor custo por unidade. Indicado pra revenda ou produção contínua de kits de papelaria.',
     specs: {
       'Materiais': 'PLA',
@@ -140,6 +149,7 @@ export const products: Product[] = [
     name: 'Suporte Celular Personalizado - 10 UND',
     price: 'R$ 173,00',
     category: 'Utilidades',
+    image: '/produto-sem-imagem.svg',
     description: 'Suporte de celular personalizável em PLA, pronto pra gravação a laser ou adesivo com nome/design do cliente. Lote de 10 unidades, ideal pra revenda ou brindes corporativos.',
     specs: {
       'Materiais': 'PLA',
@@ -151,6 +161,7 @@ export const products: Product[] = [
     name: 'Suporte Celular Personalizado - 25 UND',
     price: 'R$ 400,00',
     category: 'Utilidades',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 25 suportes de celular em PLA, prontos pra personalização com nome ou design. Desconto por volume, indicado pra revenda ou eventos corporativos.',
     specs: {
       'Materiais': 'PLA',
@@ -162,6 +173,7 @@ export const products: Product[] = [
     name: 'Suporte Celular Personalizado - 50 UND',
     price: 'R$ 749,00',
     category: 'Utilidades',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 50 suportes de celular em PLA, melhor custo por unidade. Indicado pra lojistas e produção recorrente de brindes personalizados.',
     specs: {
       'Materiais': 'PLA',
@@ -173,6 +185,7 @@ export const products: Product[] = [
     name: 'Porta Anel Kettlebell - 10 UND',
     price: 'R$ 147,00',
     category: 'Chaveiro',
+    image: '/produto-sem-imagem.svg',
     description: 'Porta-anel formato kettlebell pra academia: potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis com segurança durante o treino. Lote de 10 unidades.',
     specs: {
       'Materiais': 'PLA',
@@ -184,6 +197,7 @@ export const products: Product[] = [
     name: 'Porta Anel Kettlebell - 25 UND',
     price: 'R$ 340,00',
     category: 'Chaveiro',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 25 porta-anéis kettlebell pra academia — potinho com tampa rosqueável que prende no chaveiro. Desconto por volume, indicado pra revenda em academias.',
     specs: {
       'Materiais': 'PLA',
@@ -195,6 +209,7 @@ export const products: Product[] = [
     name: 'Porta Anel Kettlebell - 50 UND',
     price: 'R$ 636,00',
     category: 'Chaveiro',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 50 porta-anéis kettlebell pra academia, melhor custo por unidade. Indicado pra lojistas de artigos esportivos.',
     specs: {
       'Materiais': 'PLA',
@@ -206,6 +221,7 @@ export const products: Product[] = [
     name: 'Suporte Foto Flor - 10 UND',
     price: 'R$ 91,00',
     category: 'Utilidades',
+    image: '/produto-sem-imagem.svg',
     description: 'Suporte de foto em formato de flor, em PLA — decora mesa ou escritório e segura fotos pequenas/polaroid. Lote de 10 unidades, ideal pra revenda em papelarias e lojas de decoração.',
     specs: {
       'Materiais': 'PLA',
@@ -217,6 +233,7 @@ export const products: Product[] = [
     name: 'Suporte Foto Flor - 25 UND',
     price: 'R$ 210,00',
     category: 'Utilidades',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 25 suportes de foto flor em PLA, com desconto por volume. Indicado pra revenda em papelarias e lojas de decoração.',
     specs: {
       'Materiais': 'PLA',
@@ -228,6 +245,7 @@ export const products: Product[] = [
     name: 'Suporte Foto Flor - 50 UND',
     price: 'R$ 394,00',
     category: 'Utilidades',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 50 suportes de foto flor em PLA, melhor custo por unidade. Indicado pra lojistas e produção recorrente.',
     specs: {
       'Materiais': 'PLA',
@@ -239,6 +257,7 @@ export const products: Product[] = [
     name: 'Porta Guardanapo Logo - 10 UND',
     price: 'R$ 91,00',
     category: 'Mesa posta',
+    image: '/produto-sem-imagem.svg',
     description: 'Porta-guardanapo em PLA com espaço pra gravação de logo — item de mesa posta, ideal pra eventos corporativos e presentes personalizados. Lote de 10 unidades.',
     specs: {
       'Materiais': 'PLA',
@@ -250,6 +269,7 @@ export const products: Product[] = [
     name: 'Porta Guardanapo Logo - 25 UND',
     price: 'R$ 210,00',
     category: 'Mesa posta',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 25 porta-guardanapos com logo em PLA, com desconto por volume. Indicado pra eventos corporativos em maior escala.',
     specs: {
       'Materiais': 'PLA',
@@ -261,6 +281,7 @@ export const products: Product[] = [
     name: 'Porta Guardanapo Logo - 50 UND',
     price: 'R$ 394,00',
     category: 'Mesa posta',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 50 porta-guardanapos com logo em PLA, melhor custo por unidade. Indicado pra lojistas e buffets/eventos corporativos.',
     specs: {
       'Materiais': 'PLA',
@@ -272,6 +293,7 @@ export const products: Product[] = [
     name: 'Chaveiro Logo Vazado - 10 UND',
     price: 'R$ 99,00',
     category: 'Corporativo',
+    image: '/produto-sem-imagem.svg',
     description: 'Chaveiro vazado com o contorno do seu logo, em PLA. Peça leve e resistente, pronta pra brinde corporativo em volume. Lote de 10 unidades.',
     specs: {
       'Materiais': 'PLA',
@@ -283,6 +305,7 @@ export const products: Product[] = [
     name: 'Chaveiro Logo Vazado - 25 UND',
     price: 'R$ 228,00',
     category: 'Corporativo',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 25 chaveiros vazados com logo em PLA, com desconto por volume. Indicado pra ações de marketing e brindes em massa.',
     specs: {
       'Materiais': 'PLA',
@@ -294,6 +317,7 @@ export const products: Product[] = [
     name: 'Chaveiro Logo Vazado - 50 UND',
     price: 'R$ 427,00',
     category: 'Corporativo',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 50 chaveiros vazados com logo em PLA, melhor custo por unidade. Indicado pra grandes ações corporativas.',
     specs: {
       'Materiais': 'PLA',
@@ -305,6 +329,7 @@ export const products: Product[] = [
     name: 'Organizador de Cabos Logo - 10 UND',
     price: 'R$ 100,00',
     category: 'Corporativo',
+    image: '/produto-sem-imagem.svg',
     description: 'Organizador de cabos com espaço pra logo gravado — prende cabos de carregador/USB na mesa e evita bagunça. Brinde corporativo funcional. Lote de 10 unidades.',
     specs: {
       'Materiais': 'PLA',
@@ -316,6 +341,7 @@ export const products: Product[] = [
     name: 'Organizador de Cabos Logo - 25 UND',
     price: 'R$ 230,00',
     category: 'Corporativo',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 25 organizadores de cabos com logo, com desconto por volume. Indicado pra kits de boas-vindas e onboarding corporativo.',
     specs: {
       'Materiais': 'PLA',
@@ -327,6 +353,7 @@ export const products: Product[] = [
     name: 'Organizador de Cabos Logo - 50 UND',
     price: 'R$ 430,00',
     category: 'Corporativo',
+    image: '/produto-sem-imagem.svg',
     description: 'Lote de 50 organizadores de cabos com logo, melhor custo por unidade. Indicado pra grandes ações corporativas.',
     specs: {
       'Materiais': 'PLA',
