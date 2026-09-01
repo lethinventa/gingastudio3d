@@ -196,30 +196,6 @@ export const products: Product[] = [
     badges: defaultBadges('PLA'),
   },
   {
-    name: 'Porta Guardanapo Logo - 10 UND',
-    price: 'R$ 91,00',
-    category: 'Mesa posta',
-    image: '/produto-sem-imagem.svg',
-    description: 'Porta-guardanapo em PLA com espaço pra gravação de logo — item de mesa posta, ideal pra eventos corporativos e presentes personalizados. Lote de 10 unidades.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Porta Guardanapo Logo - 25 UND',
-    price: 'R$ 210,00',
-    category: 'Mesa posta',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 25 porta-guardanapos com logo em PLA, com desconto por volume. Indicado pra eventos corporativos em maior escala.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
     name: 'Chaveiro Logo Vazado - 10 UND',
     price: 'R$ 99,00',
     category: 'Corporativo',
