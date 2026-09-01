@@ -53,7 +53,8 @@ export const products: Product[] = [
     name: 'Abridor de Latas Boca - 10 UND',
     price: 'R$ 106,00',
     category: 'Abridor lata',
-    image: '/produto-sem-imagem.svg',
+    image: '/chaveiro-boca.png',
+    images: ['/chaveiro-boca.png', '/chaveiro-boca-2.png'],
     description: 'Abridor de latas em PLA com boca ergonômica, resistente e fácil de usar no dia a dia. Lote de 10 unidades, ideal pra revenda em utilidades domésticas.',
     specs: {
       'Materiais': 'PLA',
@@ -65,7 +66,8 @@ export const products: Product[] = [
     name: 'Abridor de Latas Boca - 25 UND',
     price: 'R$ 245,00',
     category: 'Abridor lata',
-    image: '/produto-sem-imagem.svg',
+    image: '/chaveiro-boca.png',
+    images: ['/chaveiro-boca.png', '/chaveiro-boca-2.png'],
     description: 'Lote de 25 abridores de latas boca em PLA, com preço reduzido por volume. Indicado pra lojistas e produção recorrente.',
     specs: {
       'Materiais': 'PLA',
@@ -77,7 +79,7 @@ export const products: Product[] = [
     name: 'Porta Anel Premium - 10 UND',
     price: 'R$ 195,00',
     category: 'Chaveiro',
-    image: '/produto-sem-imagem.svg',
+    image: '/chaveiro-portal-anel-premium.png',
     description: 'Porta-anel premium para academia: potinho com tampa rosqueável e acabamento reforçado, prende no chaveiro pra guardar aliança/anéis em segurança durante o treino. Kit com 10 unidades, pronto pra gravação a laser ou adesivo personalizado.',
     specs: {
       'Materiais': 'PLA',
@@ -89,7 +91,7 @@ export const products: Product[] = [
     name: 'Porta Anel Premium - 25 UND',
     price: 'R$ 450,00',
     category: 'Chaveiro',
-    image: '/produto-sem-imagem.svg',
+    image: '/chaveiro-portal-anel-premium.png',
     description: 'Lote fechado de 25 porta-anéis premium pra academia — potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis durante o treino. Opção certa pra quem revende em academias ou personaliza em escala.',
     specs: {
       'Materiais': 'PLA',
@@ -125,7 +127,7 @@ export const products: Product[] = [
     name: 'Suporte Celular Personalizado - 10 UND',
     price: 'R$ 173,00',
     category: 'Utilidades',
-    image: '/produto-sem-imagem.svg',
+    image: '/suporte-celular.png',
     description: 'Suporte de celular personalizável em PLA, pronto pra gravação a laser ou adesivo com nome/design do cliente. Lote de 10 unidades, ideal pra revenda ou brindes corporativos.',
     specs: {
       'Materiais': 'PLA',
@@ -137,7 +139,7 @@ export const products: Product[] = [
     name: 'Suporte Celular Personalizado - 25 UND',
     price: 'R$ 400,00',
     category: 'Utilidades',
-    image: '/produto-sem-imagem.svg',
+    image: '/suporte-celular.png',
     description: 'Lote de 25 suportes de celular em PLA, prontos pra personalização com nome ou design. Desconto por volume, indicado pra revenda ou eventos corporativos.',
     specs: {
       'Materiais': 'PLA',
@@ -149,7 +151,7 @@ export const products: Product[] = [
     name: 'Porta Anel Kettlebell - 10 UND',
     price: 'R$ 147,00',
     category: 'Chaveiro',
-    image: '/produto-sem-imagem.svg',
+    image: '/porta-anel-kettlebell.png',
     description: 'Porta-anel formato kettlebell pra academia: potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis com segurança durante o treino. Lote de 10 unidades.',
     specs: {
       'Materiais': 'PLA',
@@ -161,7 +163,7 @@ export const products: Product[] = [
     name: 'Porta Anel Kettlebell - 25 UND',
     price: 'R$ 340,00',
     category: 'Chaveiro',
-    image: '/produto-sem-imagem.svg',
+    image: '/porta-anel-kettlebell.png',
     description: 'Lote de 25 porta-anéis kettlebell pra academia — potinho com tampa rosqueável que prende no chaveiro. Desconto por volume, indicado pra revenda em academias.',
     specs: {
       'Materiais': 'PLA',
