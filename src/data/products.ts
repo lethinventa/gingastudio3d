@@ -176,7 +176,11 @@ export const products: Product[] = [
       'Materiais': 'PLA',
     },
     badges: defaultBadges('PLA'),
-    variants: [{ label: '10 unidades', quantity: 10, price: 'R$ 112,00' }],
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 112,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 256,00' },
+      { label: '50 unidades', quantity: 50, price: 'R$ 476,00' },
+    ],
   },
   {
     name: 'Porta Batom Ondas',
@@ -189,7 +193,11 @@ export const products: Product[] = [
       'Materiais': 'PLA',
     },
     badges: defaultBadges('PLA'),
-    variants: [{ label: '10 unidades', quantity: 10, price: 'R$ 140,00' }],
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 140,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 320,00' },
+      { label: '50 unidades', quantity: 50, price: 'R$ 595,00' },
+    ],
   },
   {
     name: 'Organizador de Cabos Logo',
