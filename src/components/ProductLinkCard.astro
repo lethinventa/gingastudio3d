@@ -5,7 +5,6 @@ import { slugify } from '../data/products';
 type Props = Product;
 
 const { name, price, image, variants } = Astro.props;
-const hasMultipleVariants = (variants?.length ?? 0) > 1;
 const baseQuantity = variants?.[0]?.quantity;
 ---
 
@@ -24,7 +23,6 @@ const baseQuantity = variants?.[0]?.quantity;
   <div class="min-w-0">
     <p class="text-sm font-semibold text-grafite leading-snug truncate">{name}</p>
     <p class="text-sm font-bold text-terra leading-snug">
-      {hasMultipleVariants && <span class="font-medium text-xs text-grafite/60">a partir de </span>}
       {price}
       {baseQuantity && <span class="font-medium text-xs text-grafite/50">/{baseQuantity} und</span>}
     </p>
