@@ -175,7 +175,7 @@ export const products: Product[] = [
     name: 'Suporte Foto Flor - 10 UND',
     price: 'R$ 91,00',
     category: 'Utilidades',
-    image: '/produto-sem-imagem.svg',
+    image: '/suporte-foto-flor.png',
     description: 'Suporte de foto em formato de flor, em PLA — decora mesa ou escritório e segura fotos pequenas/polaroid. Lote de 10 unidades, ideal pra revenda em papelarias e lojas de decoração.',
     specs: {
       'Materiais': 'PLA',
@@ -187,7 +187,7 @@ export const products: Product[] = [
     name: 'Suporte Foto Flor - 25 UND',
     price: 'R$ 210,00',
     category: 'Utilidades',
-    image: '/produto-sem-imagem.svg',
+    image: '/suporte-foto-flor.png',
     description: 'Lote de 25 suportes de foto flor em PLA, com desconto por volume. Indicado pra revenda em papelarias e lojas de decoração.',
     specs: {
       'Materiais': 'PLA',
