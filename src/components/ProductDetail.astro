@@ -7,9 +7,11 @@ interface Props {
 }
 
 const { product } = Astro.props;
-const { name, price, category, description, badges } = product;
+const { name, price, category, description, badges, variants } = product;
 
 const images = product.images?.length ? product.images : product.image ? [product.image] : [];
+const hasVariantChoice = (variants?.length ?? 0) > 1;
+const defaultVariant = variants?.[0];
 ---
 
 <section class="w-full py-6 md:py-10 px-6">
@@ -80,8 +82,8 @@ const images = product.images?.length ? product.images : product.image ? [produc
           <h1 class="text-grafite text-4xl lg:text-[42px] font-semibold tracking-[-0.03em] leading-tight mt-1">
             {name}
           </h1>
-          <p class="text-azul text-2xl font-bold leading-8 mt-3">{price}</p>
-          <p class="text-grafite/50 text-sm mt-1">{installmentLabel(price)}</p>
+          <p id="detail-price" class="text-azul text-2xl font-bold leading-8 mt-3">{defaultVariant?.price ?? price}</p>
+          <p id="detail-installment" class="text-grafite/50 text-sm mt-1">{installmentLabel(defaultVariant?.price ?? price)}</p>
         </div>
 
         {
@@ -112,6 +114,29 @@ const images = product.images?.length ? product.images : product.image ? [produc
             ))
           }
         </div>
+
+        {
+          hasVariantChoice && (
+            <div>
+              <p class="text-[10px] font-bold tracking-[1.54px] uppercase text-grafite mb-2">
+                Tamanho do lote
+              </p>
+              <div id="variant-selector" class="flex flex-wrap gap-2">
+                {variants!.map((variant, i) => (
+                  <button
+                    type="button"
+                    class={`variant-option${i === 0 ? ' is-selected' : ''}`}
+                    data-label={variant.label}
+                    data-quantity={variant.quantity}
+                    data-price={variant.price}
+                  >
+                    {variant.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )
+        }
 
         <div>
           <p class="text-[10px] font-bold tracking-[1.54px] uppercase text-grafite mb-2">
@@ -147,7 +172,7 @@ const images = product.images?.length ? product.images : product.image ? [produc
           <button
             id="add-to-cart-btn"
             type="button"
-            data-product={JSON.stringify({ name, price, image: images[0] ?? '' })}
+            data-product={JSON.stringify({ name, price: defaultVariant?.price ?? price, image: images[0] ?? '' })}
             class="w-full bg-azul text-creme font-bold text-sm py-4 rounded-2xl flex items-center justify-center gap-2.5 hover:opacity-90 transition-opacity"
           >
             <span id="add-to-cart-label">Adicionar ao carrinho</span>
@@ -212,11 +237,60 @@ const images = product.images?.length ? product.images : product.image ? [produc
     height: 100%;
     object-fit: cover;
   }
+
+  .variant-option {
+    border: 0.8px solid rgba(17, 17, 17, 0.25);
+    color: #111;
+    background: transparent;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 9px 17px;
+    border-radius: 9999px;
+    white-space: nowrap;
+    cursor: pointer;
+    transition:
+      background-color 150ms,
+      color 150ms,
+      border-color 150ms;
+  }
+
+  .variant-option.is-selected {
+    background: var(--color-azul);
+    color: var(--color-creme);
+    border-color: var(--color-azul);
+  }
 </style>
 
 <script>
   import { addToCart, openCart } from '../lib/cart';
   import { slugify } from '../data/products';
+  import { installmentLabel } from '../lib/format';
+
+  const variantButtons = document.querySelectorAll<HTMLButtonElement>('.variant-option');
+  const priceEl = document.getElementById('detail-price');
+  const installmentEl = document.getElementById('detail-installment');
+
+  let selectedVariant: { label: string; quantity: number; price: string } | null =
+    variantButtons.length > 0
+      ? {
+          label: variantButtons[0].dataset.label!,
+          quantity: Number(variantButtons[0].dataset.quantity),
+          price: variantButtons[0].dataset.price!,
+        }
+      : null;
+
+  variantButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      selectedVariant = {
+        label: btn.dataset.label!,
+        quantity: Number(btn.dataset.quantity),
+        price: btn.dataset.price!,
+      };
+      variantButtons.forEach((b) => b.classList.toggle('is-selected', b === btn));
+      if (priceEl) priceEl.textContent = selectedVariant.price;
+      if (installmentEl) installmentEl.textContent = installmentLabel(selectedVariant.price);
+    });
+  });
 
   const mainImage = document.getElementById('gallery-main-image') as HTMLImageElement | null;
   const thumbs = document.querySelectorAll<HTMLButtonElement>('.gallery-thumb');
@@ -277,7 +351,11 @@ const images = product.images?.length ? product.images : product.image ? [produc
       price: string;
       image: string;
     };
-    addToCart({ slug: slugify(product.name), name: product.name, price: product.price, image: product.image }, quantity);
+    const baseSlug = slugify(product.name);
+    const itemName = selectedVariant ? `${product.name} - ${selectedVariant.label}` : product.name;
+    const itemPrice = selectedVariant ? selectedVariant.price : product.price;
+    const itemSlug = selectedVariant ? `${baseSlug}--${selectedVariant.quantity}` : baseSlug;
+    addToCart({ slug: itemSlug, name: itemName, price: itemPrice, image: product.image }, quantity);
 
     const original = addToCartLabel.textContent;
     addToCartLabel.textContent = 'Adicionado ✓';

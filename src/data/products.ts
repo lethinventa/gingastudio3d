@@ -3,6 +3,12 @@ export interface ProductBadge {
   icon: string;
 }
 
+export interface ProductVariant {
+  label: string;
+  quantity: number;
+  price: string;
+}
+
 export interface Product {
   name: string;
   price: string;
@@ -12,6 +18,7 @@ export interface Product {
   description?: string;
   specs?: Record<string, string>;
   badges?: ProductBadge[];
+  variants?: ProductVariant[];
 }
 
 const badgeIcons = {
@@ -38,235 +45,162 @@ function defaultBadges(material: string): ProductBadge[] {
 
 export const products: Product[] = [
   {
-    name: 'Porta Anel Simples - 10 UND',
+    name: 'Porta Anel Simples',
     price: 'R$ 140,00',
     category: 'Chaveiro',
     image: '/porta-anel-simples.png',
-    description: 'Porta-anel para academia: potinho com tampa rosqueável que prende no chaveiro, ideal pra guardar aliança, anéis ou brincos com segurança durante o treino. Lote de 10 unidades, ideal pra revenda em academias e lojas de artigos esportivos.',
+    description: 'Porta-anel para academia: potinho com tampa rosqueável que prende no chaveiro, ideal pra guardar aliança, anéis ou brincos com segurança durante o treino. Ideal pra revenda em academias e lojas de artigos esportivos.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [{ label: '10 unidades', quantity: 10, price: 'R$ 140,00' }],
   },
   {
-    name: 'Abridor de Latas Boca - 10 UND',
+    name: 'Abridor de Latas Boca',
     price: 'R$ 106,00',
     category: 'Abridor lata',
     image: '/chaveiro-boca.png',
     images: ['/chaveiro-boca.png', '/chaveiro-boca-2.png'],
-    description: 'Abridor de latas em PLA com boca ergonômica, resistente e fácil de usar no dia a dia. Lote de 10 unidades, ideal pra revenda em utilidades domésticas.',
+    description: 'Abridor de latas em PLA com boca ergonômica, resistente e fácil de usar no dia a dia. Ideal pra revenda em utilidades domésticas.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 106,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 245,00' },
+    ],
   },
   {
-    name: 'Abridor de Latas Boca - 25 UND',
-    price: 'R$ 245,00',
-    category: 'Abridor lata',
-    image: '/chaveiro-boca.png',
-    images: ['/chaveiro-boca.png', '/chaveiro-boca-2.png'],
-    description: 'Lote de 25 abridores de latas boca em PLA, com preço reduzido por volume. Indicado pra lojistas e produção recorrente.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Porta Anel Premium - 10 UND',
+    name: 'Porta Anel Premium',
     price: 'R$ 195,00',
     category: 'Chaveiro',
     image: '/chaveiro-portal-anel-premium.png',
-    description: 'Porta-anel premium para academia: potinho com tampa rosqueável e acabamento reforçado, prende no chaveiro pra guardar aliança/anéis em segurança durante o treino. Kit com 10 unidades, pronto pra gravação a laser ou adesivo personalizado.',
+    description: 'Porta-anel premium para academia: potinho com tampa rosqueável e acabamento reforçado, prende no chaveiro pra guardar aliança/anéis em segurança durante o treino. Pronto pra gravação a laser ou adesivo personalizado.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 195,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 450,00' },
+    ],
   },
   {
-    name: 'Porta Anel Premium - 25 UND',
-    price: 'R$ 450,00',
-    category: 'Chaveiro',
-    image: '/chaveiro-portal-anel-premium.png',
-    description: 'Lote fechado de 25 porta-anéis premium pra academia — potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis durante o treino. Opção certa pra quem revende em academias ou personaliza em escala.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Ponteira Lápis - 10 UND',
+    name: 'Ponteira Lápis',
     price: 'R$ 28,00',
     category: 'Utilidades',
     image: '/ponteira-lapis.jpg',
-    description: 'Ponteira de lápis em PLA, prática pra personalizar kits escolares ou brindes de papelaria. Kit com 10 unidades.',
+    description: 'Ponteira de lápis em PLA, prática pra personalizar kits escolares ou brindes de papelaria.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 28,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 64,00' },
+    ],
   },
   {
-    name: 'Ponteira Lápis - 25 UND',
-    price: 'R$ 64,00',
-    category: 'Utilidades',
-    image: '/ponteira-lapis.jpg',
-    description: 'Lote de 25 ponteiras de lápis em PLA com preço reduzido por volume, ideal pra quem monta kits de papelaria personalizados em escala.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Suporte Celular Personalizado - 10 UND',
+    name: 'Suporte Celular Personalizado',
     price: 'R$ 173,00',
     category: 'Utilidades',
     image: '/suporte-celular.png',
-    description: 'Suporte de celular personalizável em PLA, pronto pra gravação a laser ou adesivo com nome/design do cliente. Lote de 10 unidades, ideal pra revenda ou brindes corporativos.',
+    description: 'Suporte de celular personalizável em PLA, pronto pra gravação a laser ou adesivo com nome/design do cliente. Ideal pra revenda ou brindes corporativos.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 173,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 400,00' },
+    ],
   },
   {
-    name: 'Suporte Celular Personalizado - 25 UND',
-    price: 'R$ 400,00',
-    category: 'Utilidades',
-    image: '/suporte-celular.png',
-    description: 'Lote de 25 suportes de celular em PLA, prontos pra personalização com nome ou design. Desconto por volume, indicado pra revenda ou eventos corporativos.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Porta Anel Kettlebell - 10 UND',
+    name: 'Porta Anel Kettlebell',
     price: 'R$ 147,00',
     category: 'Chaveiro',
     image: '/porta-anel-kettlebell.png',
-    description: 'Porta-anel formato kettlebell pra academia: potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis com segurança durante o treino. Lote de 10 unidades.',
+    description: 'Porta-anel formato kettlebell pra academia: potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis com segurança durante o treino.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 147,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 340,00' },
+    ],
   },
   {
-    name: 'Porta Anel Kettlebell - 25 UND',
-    price: 'R$ 340,00',
-    category: 'Chaveiro',
-    image: '/porta-anel-kettlebell.png',
-    description: 'Lote de 25 porta-anéis kettlebell pra academia — potinho com tampa rosqueável que prende no chaveiro. Desconto por volume, indicado pra revenda em academias.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Suporte Foto Flor - 10 UND',
+    name: 'Suporte Foto Flor',
     price: 'R$ 91,00',
     category: 'Utilidades',
     image: '/suporte-foto-flor.png',
-    description: 'Suporte de foto em formato de flor, em PLA — decora mesa ou escritório e segura fotos pequenas/polaroid. Lote de 10 unidades, ideal pra revenda em papelarias e lojas de decoração.',
+    description: 'Suporte de foto em formato de flor, em PLA — decora mesa ou escritório e segura fotos pequenas/polaroid. Ideal pra revenda em papelarias e lojas de decoração.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 91,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 210,00' },
+    ],
   },
   {
-    name: 'Suporte Foto Flor - 25 UND',
-    price: 'R$ 210,00',
-    category: 'Utilidades',
-    image: '/suporte-foto-flor.png',
-    description: 'Lote de 25 suportes de foto flor em PLA, com desconto por volume. Indicado pra revenda em papelarias e lojas de decoração.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Chaveiro Logo Vazado - 10 UND',
+    name: 'Chaveiro Logo Vazado',
     price: 'R$ 99,00',
     category: 'Corporativo',
     image: '/produto-sem-imagem.svg',
-    description: 'Chaveiro vazado com o contorno do seu logo, em PLA. Peça leve e resistente, pronta pra brinde corporativo em volume. Lote de 10 unidades.',
+    description: 'Chaveiro vazado com o contorno do seu logo, em PLA. Peça leve e resistente, pronta pra brinde corporativo em volume.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 99,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 228,00' },
+    ],
   },
   {
-    name: 'Chaveiro Logo Vazado - 25 UND',
-    price: 'R$ 228,00',
-    category: 'Corporativo',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 25 chaveiros vazados com logo em PLA, com desconto por volume. Indicado pra ações de marketing e brindes em massa.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Chaveiro Capacete - 10 UND',
+    name: 'Chaveiro Capacete',
     price: 'R$ 112,00',
     category: 'Chaveiro',
     image: '/chaveiro-capacete.png',
-    description: 'Chaveiro em formato de capacete, ideal pra quem é apaixonado por moto ou ciclismo. Leve, resistente e fácil de personalizar com cores. Lote de 10 unidades.',
+    description: 'Chaveiro em formato de capacete, ideal pra quem é apaixonado por moto ou ciclismo. Leve, resistente e fácil de personalizar com cores.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [{ label: '10 unidades', quantity: 10, price: 'R$ 112,00' }],
   },
   {
-    name: 'Porta Batom Ondas - 10 UND',
+    name: 'Porta Batom Ondas',
     price: 'R$ 140,00',
     category: 'Chaveiro',
     image: '/porta-batom-onda.png',
     images: ['/porta-batom-onda.png', '/porta-batom-onda2.png'],
-    description: 'Porta batom com textura em ondas, prático pra levar batom ou protetor labial na bolsa sem sujar tudo. Lote de 10 unidades.',
+    description: 'Porta batom com textura em ondas, prático pra levar batom ou protetor labial na bolsa sem sujar tudo.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
+    variants: [{ label: '10 unidades', quantity: 10, price: 'R$ 140,00' }],
   },
   {
-    name: 'Organizador de Cabos Logo - 10 UND',
+    name: 'Organizador de Cabos Logo',
     price: 'R$ 100,00',
     category: 'Corporativo',
     image: '/produto-sem-imagem.svg',
-    description: 'Organizador de cabos com espaço pra logo gravado — prende cabos de carregador/USB na mesa e evita bagunça. Brinde corporativo funcional. Lote de 10 unidades.',
+    description: 'Organizador de cabos com espaço pra logo gravado — prende cabos de carregador/USB na mesa e evita bagunça. Brinde corporativo funcional.',
     specs: {
       'Materiais': 'PLA',
-      'Quantidade': 'Lote de 10 unidades',
     },
     badges: defaultBadges('PLA'),
-  },
-  {
-    name: 'Organizador de Cabos Logo - 25 UND',
-    price: 'R$ 230,00',
-    category: 'Corporativo',
-    image: '/produto-sem-imagem.svg',
-    description: 'Lote de 25 organizadores de cabos com logo, com desconto por volume. Indicado pra kits de boas-vindas e onboarding corporativo.',
-    specs: {
-      'Materiais': 'PLA',
-      'Quantidade': 'Lote de 25 unidades',
-    },
-    badges: defaultBadges('PLA'),
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 100,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 230,00' },
+    ],
   },
 ];
 

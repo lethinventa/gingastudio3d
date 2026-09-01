@@ -4,7 +4,8 @@ import { slugify } from '../data/products';
 
 type Props = Product;
 
-const { name, price, image } = Astro.props;
+const { name, price, image, variants } = Astro.props;
+const hasMultipleVariants = (variants?.length ?? 0) > 1;
 ---
 
 <a href={`/produtos/${slugify(name)}`} class="flex flex-col gap-2.5 group min-w-0">
@@ -21,6 +22,9 @@ const { name, price, image } = Astro.props;
   </div>
   <div class="min-w-0">
     <p class="text-sm font-semibold text-grafite leading-snug truncate">{name}</p>
-    <p class="text-sm font-bold text-terra leading-snug">{price}</p>
+    <p class="text-sm font-bold text-terra leading-snug">
+      {hasMultipleVariants && <span class="font-medium text-xs text-grafite/60">a partir de </span>}
+      {price}
+    </p>
   </div>
 </a>
