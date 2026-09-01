@@ -184,21 +184,6 @@ export const products: Product[] = [
       { label: '50 unidades', quantity: 50, price: 'R$ 595,00' },
     ],
   },
-  {
-    name: 'Organizador de Cabos Logo',
-    price: 'R$ 100,00',
-    category: 'Corporativo',
-    image: '/produto-sem-imagem.svg',
-    description: 'Organizador de cabos com espaço pra logo gravado — prende cabos de carregador/USB na mesa e evita bagunça. Brinde corporativo funcional.',
-    specs: {
-      'Materiais': 'PLA',
-    },
-    badges: defaultBadges('PLA'),
-    variants: [
-      { label: '10 unidades', quantity: 10, price: 'R$ 100,00' },
-      { label: '25 unidades', quantity: 25, price: 'R$ 230,00' },
-    ],
-  },
 ];
 
 export const featuredProducts = products.slice(0, 4);
