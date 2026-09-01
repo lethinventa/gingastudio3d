@@ -152,21 +152,6 @@ export const products: Product[] = [
     ],
   },
   {
-    name: 'Chaveiro Logo Vazado',
-    price: 'R$ 99,00',
-    category: 'Corporativo',
-    image: '/produto-sem-imagem.svg',
-    description: 'Chaveiro vazado com o contorno do seu logo, em PLA. Peça leve e resistente, pronta pra brinde corporativo em volume.',
-    specs: {
-      'Materiais': 'PLA',
-    },
-    badges: defaultBadges('PLA'),
-    variants: [
-      { label: '10 unidades', quantity: 10, price: 'R$ 99,00' },
-      { label: '25 unidades', quantity: 25, price: 'R$ 228,00' },
-    ],
-  },
-  {
     name: 'Chaveiro Capacete',
     price: 'R$ 112,00',
     category: 'Chaveiro',
