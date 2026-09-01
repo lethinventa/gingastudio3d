@@ -103,7 +103,7 @@ export const products: Product[] = [
     name: 'Ponteira Lápis - 10 UND',
     price: 'R$ 28,00',
     category: 'Utilidades',
-    image: '/produto-sem-imagem.svg',
+    image: '/ponteira-lapis.jpg',
     description: 'Ponteira de lápis em PLA, prática pra personalizar kits escolares ou brindes de papelaria. Kit com 10 unidades.',
     specs: {
       'Materiais': 'PLA',
@@ -115,7 +115,7 @@ export const products: Product[] = [
     name: 'Ponteira Lápis - 25 UND',
     price: 'R$ 64,00',
     category: 'Utilidades',
-    image: '/produto-sem-imagem.svg',
+    image: '/ponteira-lapis.jpg',
     description: 'Lote de 25 ponteiras de lápis em PLA com preço reduzido por volume, ideal pra quem monta kits de papelaria personalizados em escala.',
     specs: {
       'Materiais': 'PLA',
@@ -247,7 +247,7 @@ export const products: Product[] = [
     name: 'Chaveiro Capacete - 10 UND',
     price: 'R$ 112,00',
     category: 'Chaveiro',
-    image: '/produto-sem-imagem.svg',
+    image: '/chaveiro-capacete.png',
     description: 'Chaveiro em formato de capacete, ideal pra quem é apaixonado por moto ou ciclismo. Leve, resistente e fácil de personalizar com cores. Lote de 10 unidades.',
     specs: {
       'Materiais': 'PLA',
@@ -259,7 +259,8 @@ export const products: Product[] = [
     name: 'Porta Batom Ondas - 10 UND',
     price: 'R$ 140,00',
     category: 'Chaveiro',
-    image: '/produto-sem-imagem.svg',
+    image: '/porta-batom-onda.png',
+    images: ['/porta-batom-onda.png', '/porta-batom-onda2.png'],
     description: 'Porta batom com textura em ondas, prático pra levar batom ou protetor labial na bolsa sem sujar tudo. Lote de 10 unidades.',
     specs: {
       'Materiais': 'PLA',
