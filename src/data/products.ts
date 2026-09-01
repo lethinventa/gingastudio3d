@@ -244,6 +244,30 @@ export const products: Product[] = [
     badges: defaultBadges('PLA'),
   },
   {
+    name: 'Chaveiro Capacete - 10 UND',
+    price: 'R$ 112,00',
+    category: 'Chaveiro',
+    image: '/produto-sem-imagem.svg',
+    description: 'Chaveiro em formato de capacete, ideal pra quem é apaixonado por moto ou ciclismo. Leve, resistente e fácil de personalizar com cores. Lote de 10 unidades.',
+    specs: {
+      'Materiais': 'PLA',
+      'Quantidade': 'Lote de 10 unidades',
+    },
+    badges: defaultBadges('PLA'),
+  },
+  {
+    name: 'Porta Batom Ondas - 10 UND',
+    price: 'R$ 140,00',
+    category: 'Chaveiro',
+    image: '/produto-sem-imagem.svg',
+    description: 'Porta batom com textura em ondas, prático pra levar batom ou protetor labial na bolsa sem sujar tudo. Lote de 10 unidades.',
+    specs: {
+      'Materiais': 'PLA',
+      'Quantidade': 'Lote de 10 unidades',
+    },
+    badges: defaultBadges('PLA'),
+  },
+  {
     name: 'Organizador de Cabos Logo - 10 UND',
     price: 'R$ 100,00',
     category: 'Corporativo',
