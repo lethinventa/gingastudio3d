@@ -81,7 +81,7 @@ export const products: Product[] = [
     price: 'R$ 195,00',
     category: 'Chaveiro',
     image: '/chaveiro-portal-anel-premium.png',
-    description: 'Porta-anel premium para academia: potinho com tampa rosqueável e acabamento reforçado, prende no chaveiro pra guardar aliança/anéis em segurança durante o treino. Pronto pra gravação a laser ou adesivo personalizado.',
+    description: 'Porta-anel premium para academia: potinho com tampa rosqueável e forração interna em feltro pra não arranhar a joia, prende no chaveiro pra guardar aliança/anéis em segurança durante o treino. Pronto pra gravação a laser ou adesivo personalizado.',
     specs: {
       'Materiais': 'PLA',
     },
