@@ -82,7 +82,14 @@ const defaultVariant = variants?.[0];
           <h1 class="text-grafite text-4xl lg:text-[42px] font-semibold tracking-[-0.03em] leading-tight mt-1">
             {name}
           </h1>
-          <p id="detail-price" class="text-azul text-2xl font-bold leading-8 mt-3">{defaultVariant?.price ?? price}</p>
+          <p class="flex items-baseline gap-2 mt-3">
+            <span id="detail-price" class="text-azul text-2xl font-bold leading-8">{defaultVariant?.price ?? price}</span>
+            {
+              defaultVariant && (
+                <span id="detail-lote" class="text-grafite/50 text-sm">lote de {defaultVariant.quantity} unidades</span>
+              )
+            }
+          </p>
           <p id="detail-installment" class="text-grafite/50 text-sm mt-1">{installmentLabel(defaultVariant?.price ?? price)}</p>
         </div>
 
@@ -268,6 +275,7 @@ const defaultVariant = variants?.[0];
 
   const variantButtons = document.querySelectorAll<HTMLButtonElement>('.variant-option');
   const priceEl = document.getElementById('detail-price');
+  const loteEl = document.getElementById('detail-lote');
   const installmentEl = document.getElementById('detail-installment');
 
   let selectedVariant: { label: string; quantity: number; price: string } | null =
@@ -288,6 +296,7 @@ const defaultVariant = variants?.[0];
       };
       variantButtons.forEach((b) => b.classList.toggle('is-selected', b === btn));
       if (priceEl) priceEl.textContent = selectedVariant.price;
+      if (loteEl) loteEl.textContent = `lote de ${selectedVariant.quantity} unidades`;
       if (installmentEl) installmentEl.textContent = installmentLabel(selectedVariant.price);
     });
   });

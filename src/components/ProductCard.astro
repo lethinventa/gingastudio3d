@@ -6,6 +6,7 @@ type Props = Product;
 
 const { name, price, category, image, variants } = Astro.props;
 const hasMultipleVariants = (variants?.length ?? 0) > 1;
+const baseQuantity = variants?.[0]?.quantity;
 ---
 
 <a
@@ -28,5 +29,10 @@ const hasMultipleVariants = (variants?.length ?? 0) > 1;
       {hasMultipleVariants && <span class="font-medium text-sm text-grafite/60">a partir de </span>}
       {price}
     </p>
+    {
+      baseQuantity && (
+        <p class="text-xs text-grafite/50 leading-snug">lote de {baseQuantity} unidades</p>
+      )
+    }
   </div>
 </a>
