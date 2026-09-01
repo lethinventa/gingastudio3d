@@ -49,7 +49,7 @@ export const products: Product[] = [
     price: 'R$ 140,00',
     category: 'Chaveiro',
     image: '/porta-anel-simples.png',
-    description: 'Porta-anel para academia: potinho com tampa rosqueável que prende no chaveiro, ideal pra guardar aliança, anéis ou brincos com segurança durante o treino. Ideal pra revenda em academias e lojas de artigos esportivos.',
+    description: 'Porta-anel para academia: potinho com tampa de click que prende no chaveiro, ideal pra guardar aliança, anéis ou brincos com segurança durante o treino. Ideal pra revenda em academias e lojas de artigos esportivos.',
     specs: {
       'Materiais': 'PLA',
     },
