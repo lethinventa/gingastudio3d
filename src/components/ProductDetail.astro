@@ -82,11 +82,11 @@ const defaultVariant = variants?.[0];
           <h1 class="text-grafite text-4xl lg:text-[42px] font-semibold tracking-[-0.03em] leading-tight mt-1">
             {name}
           </h1>
-          <p class="flex items-baseline gap-2 mt-3">
+          <p class="mt-3">
             <span id="detail-price" class="text-azul text-2xl font-bold leading-8">{defaultVariant?.price ?? price}</span>
             {
               defaultVariant && (
-                <span id="detail-lote" class="text-grafite/50 text-sm">lote de {defaultVariant.quantity} unidades</span>
+                <span id="detail-lote" class="text-grafite/50 text-lg font-medium">/{defaultVariant.quantity} und</span>
               )
             }
           </p>
@@ -296,7 +296,7 @@ const defaultVariant = variants?.[0];
       };
       variantButtons.forEach((b) => b.classList.toggle('is-selected', b === btn));
       if (priceEl) priceEl.textContent = selectedVariant.price;
-      if (loteEl) loteEl.textContent = `lote de ${selectedVariant.quantity} unidades`;
+      if (loteEl) loteEl.textContent = `/${selectedVariant.quantity} und`;
       if (installmentEl) installmentEl.textContent = installmentLabel(selectedVariant.price);
     });
   });

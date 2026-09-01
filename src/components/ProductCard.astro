@@ -28,11 +28,7 @@ const baseQuantity = variants?.[0]?.quantity;
     <p class="font-bold text-lg text-terra leading-snug">
       {hasMultipleVariants && <span class="font-medium text-sm text-grafite/60">a partir de </span>}
       {price}
+      {baseQuantity && <span class="font-medium text-sm text-grafite/50">/{baseQuantity} und</span>}
     </p>
-    {
-      baseQuantity && (
-        <p class="text-xs text-grafite/50 leading-snug">lote de {baseQuantity} unidades</p>
-      )
-    }
   </div>
 </a>
