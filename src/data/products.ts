@@ -41,7 +41,7 @@ export const products: Product[] = [
     name: 'Porta Anel Simples - 10 UND',
     price: 'R$ 140,00',
     category: 'Chaveiro',
-    image: '/produto-sem-imagem.svg',
+    image: '/porta-anel-simples.png',
     description: 'Porta-anel para academia: potinho com tampa rosqueável que prende no chaveiro, ideal pra guardar aliança, anéis ou brincos com segurança durante o treino. Lote de 10 unidades, ideal pra revenda em academias e lojas de artigos esportivos.',
     specs: {
       'Materiais': 'PLA',
