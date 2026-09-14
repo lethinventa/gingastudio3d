@@ -1,0 +1,76 @@
+---
+import '@fontsource-variable/onest/wght.css';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import CartDrawer from '../components/CartDrawer.astro';
+import Footer from '../components/Footer.astro';
+
+const questions = [
+  {
+    title: 'Como funciona o pedido?',
+    body: 'Você navega pelo catálogo, adiciona os produtos ao carrinho e, ao finalizar, o site monta uma mensagem com o resumo do pedido pra você enviar pelo WhatsApp. É por lá que combinamos os detalhes finais e o pagamento.',
+  },
+  {
+    title: 'Quais as formas de pagamento?',
+    body: 'Não temos checkout online — a forma de pagamento é combinada diretamente com você na conversa do WhatsApp.',
+  },
+  {
+    title: 'Tem quantidade mínima de pedido?',
+    body: 'Os lotes de cada produto começam em 10 unidades, ideais pra quem revende ou vai distribuir como brinde corporativo.',
+  },
+  {
+    title: 'Dá pra personalizar com logo, nome ou design próprio?',
+    body: 'Sim, muitos dos nossos produtos são preparados pra gravação a laser ou adesivo personalizado. Envie sua arte ou ideia pelo WhatsApp que te ajudamos a ver o que é possível pra cada peça.',
+  },
+  {
+    title: 'Qual o prazo de produção e entrega?',
+    body: 'Como cada peça é feita sob encomenda, o prazo varia com o tamanho do pedido. Detalhes sobre produção, envio e entrega em Natal/RN estão na página de Prazos e envios.',
+  },
+  {
+    title: 'Posso trocar ou devolver um produto?',
+    body: 'Por serem produtos personalizados e feitos sob encomenda, só aceitamos troca em caso de defeito de fabricação. Veja o prazo e como solicitar na página de Trocas e devoluções.',
+  },
+  {
+    title: 'Vocês atendem só Natal/RN?',
+    body: 'O estúdio fica em Natal/RN, onde também fazemos entrega e retirada. Pra outros estados, enviamos pelos Correios.',
+  },
+];
+---
+
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Perguntas Frequentes — Ginga Studio 3D</title>
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section class="w-full pt-10 md:pt-16 px-6">
+        <div class="max-w-3xl mx-auto">
+          <h1 class="text-grafite text-3xl lg:text-[42px] tracking-[-0.04em] leading-tight">
+            <span class="font-light">Perguntas</span> <span class="font-semibold text-azul">frequentes</span>
+          </h1>
+          <p class="text-grafite/70 text-sm md:text-base mt-2">
+            As dúvidas mais comuns sobre pedidos, personalização, entrega e trocas.
+          </p>
+        </div>
+      </section>
+
+      <section class="w-full py-8 md:py-12 px-6">
+        <div class="max-w-3xl mx-auto flex flex-col gap-8">
+          {questions.map(({ title, body }) => (
+            <div class="flex flex-col gap-2">
+              <h2 class="text-grafite font-semibold text-lg">{title}</h2>
+              <p class="text-grafite/80 text-sm leading-relaxed">{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </main>
+    <CartDrawer />
+    <Footer />
+  </body>
+</html>
