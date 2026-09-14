@@ -31,11 +31,6 @@ const categories = ['Todos', ...new Set(products.map((p) => p.category))];
       ))}
     </div>
 
-    <div class="flex justify-center">
-      <button id="load-more-btn" class="border border-grafite/25 rounded-full px-5 py-[9px] text-[13px] font-bold text-grafite hover:border-azul hover:text-azul transition-colors">
-        Ver mais produtos
-      </button>
-    </div>
   </div>
 </section>
 
@@ -55,40 +50,27 @@ const categories = ['Todos', ...new Set(products.map((p) => p.category))];
 </style>
 
 <script>
-  const PAGE_SIZE = 8;
   const tabs = document.querySelectorAll<HTMLButtonElement>('.catalog-tab');
   const cards = Array.from(document.querySelectorAll<HTMLElement>('#catalog-grid > [data-category]'));
-  const loadMoreBtn = document.getElementById('load-more-btn')!;
 
   let currentCategory = 'Todos';
-  let visibleCount = PAGE_SIZE;
 
   function render() {
-    const filtered = cards.filter(
-      (card) =>
+    cards.forEach((card) => {
+      const matches =
         currentCategory === 'Todos' ||
-        card.dataset.category?.toLowerCase() === currentCategory.toLowerCase()
-    );
-
-    cards.forEach((card) => (card.style.display = 'none'));
-    filtered.slice(0, visibleCount).forEach((card) => (card.style.display = ''));
-
-    loadMoreBtn.style.display = filtered.length > visibleCount ? '' : 'none';
+        card.dataset.category?.toLowerCase() === currentCategory.toLowerCase();
+      card.style.display = matches ? '' : 'none';
+    });
   }
 
   tabs.forEach((tab) => {
     tab.addEventListener('click', () => {
       currentCategory = tab.dataset.category!;
-      visibleCount = PAGE_SIZE;
       tabs.forEach((t) => t.classList.remove('is-active'));
       tab.classList.add('is-active');
       render();
     });
-  });
-
-  loadMoreBtn.addEventListener('click', () => {
-    visibleCount += PAGE_SIZE;
-    render();
   });
 
   render();
