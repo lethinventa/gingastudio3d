@@ -39,10 +39,10 @@ you touch anything:
   into the URL (e.g. "Luminária Concha" → `/produtos/luminaria-concha`). If you rename
   an existing product, its page address changes too — mention that to whoever asked,
   since any link they've already shared (Instagram bio, ads, WhatsApp) would break.
-- **Order in the list is the display order** on the `/produtos` catalog page.
-- **The first 4 products in the array are "featured"** on the homepage
-  (`featuredProducts = products.slice(0, 4)`). When adding a product, ask if it should
-  be featured — if so, insert it within the first 4 entries rather than at the end.
+- **Order in the list is the display order**, both on the `/produtos` catalog page and
+  in the full catalog section shown on the homepage — there's no separate "featured"
+  list anymore, so where you insert a product in the array is where it shows up
+  everywhere.
 - **Categories aren't a fixed list anywhere** — the filter tabs on `/produtos` are
   generated automatically from whatever category strings exist on the products. A new
   category just works the moment you use it; there's no separate place to register it.
@@ -55,13 +55,6 @@ you touch anything:
   `/product-5.png`. If the designer hands you an image file, place it in `public/`
   with a clean, descriptive kebab-case filename (e.g. `luminaria-concha.png`) — don't
   reuse another product's filename even if it seems similar.
-- **`badges`** are the row of small feature icons under the price (material, "made in
-  Natal/RN," shipping time, made-to-order, 3D printing, packaging). Every existing
-  product builds this with the `defaultBadges('<material>')` helper already defined in
-  the file — always use that helper for new products instead of writing badge objects
-  by hand, so new entries automatically match the visual style of the rest of the site.
-  Pass it the material description (this also becomes the first badge's label).
-
 ### What a full entry looks like
 
 ```ts
@@ -77,7 +70,6 @@ you touch anything:
     'Medidas': 'Ø 16cm x A 20cm',
     'Cuidados': 'Não expor a temperaturas acima de 50°C.',
   },
-  badges: defaultBadges('PLA biodegradável'),
 },
 ```
 
@@ -96,9 +88,9 @@ automatically.
 2. Check the name isn't already used (case-insensitive) — it determines the page
    address and duplicates would collide.
 3. Place any provided photo(s) into `public/`.
-4. Ask whether it should be featured on the homepage; insert accordingly (see above).
-5. Add the entry using `defaultBadges()` for the badges field.
-6. Verify (see below), then confirm in plain language, including the new product's
+4. Ask where in the catalog it should appear (see order note above) and insert
+   accordingly.
+5. Verify (see below), then confirm in plain language, including the new product's
    page address so they can check it themselves.
 
 ## Update a product

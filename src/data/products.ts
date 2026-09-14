@@ -149,8 +149,6 @@ export const products: Product[] = [
   },
 ];
 
-export const featuredProducts = products.slice(0, 4);
-
 export function slugify(value: string): string {
   return value
     .normalize('NFD')
