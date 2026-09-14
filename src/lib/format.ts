@@ -11,3 +11,7 @@ export function installmentLabel(price: string, times = 6): string {
   const installment = parsePrice(price) / times;
   return `ou ${times}x de ${formatBRL(installment)} sem juros`;
 }
+
+export function unitPriceLabel(price: string, quantity: number): string {
+  return formatBRL(parsePrice(price) / quantity);
+}

@@ -1,11 +1,13 @@
 ---
 import type { Product } from '../data/products';
 import { slugify } from '../data/products';
+import { unitPriceLabel } from '../lib/format';
 
 type Props = Product;
 
 const { name, price, category, image, variants } = Astro.props;
-const baseQuantity = variants?.[0]?.quantity;
+const baseVariant = variants?.[0];
+const displayPrice = baseVariant ? unitPriceLabel(baseVariant.price, baseVariant.quantity) : price;
 ---
 
 <a
@@ -25,8 +27,8 @@ const baseQuantity = variants?.[0]?.quantity;
   <div class="flex flex-col gap-1.5 p-5">
     <p class="font-bold text-base text-grafite leading-snug">{name}</p>
     <p class="font-bold text-lg text-terra leading-snug">
-      {price}
-      {baseQuantity && <span class="font-medium text-sm text-grafite/50">/{baseQuantity} und</span>}
+      {displayPrice}
+      <span class="font-medium text-sm text-grafite/50">/und</span>
     </p>
   </div>
 </a>
