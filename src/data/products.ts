@@ -81,7 +81,7 @@ export const products: Product[] = [
     price: 'R$ 165,00',
     category: 'Chaveiro',
     image: '/chaveiro-portal-anel-premium.png',
-    description: 'Porta-anel premium para academia: potinho com tampa rosqueável e forração interna em feltro pra não arranhar a joia, prende no chaveiro pra guardar aliança/anéis em segurança durante o treino. Pronto pra gravação a laser ou adesivo personalizado.',
+    description: 'Porta-anel premium para academia: potinho com tampa rosqueável e forração interna em feltro pra não arranhar a joia, prende no chaveiro pra guardar aliança/anéis em segurança durante o treino. Personalização impressa em 3D direto na peça ou com adesivo vinílico.',
     specs: {
       'Materiais': 'PLA',
     },
@@ -111,7 +111,7 @@ export const products: Product[] = [
     price: 'R$ 173,00',
     category: 'Utilidades',
     image: '/suporte-celular.png',
-    description: 'Suporte de celular personalizável em PLA, pronto pra gravação a laser ou adesivo com nome/design do cliente. Ideal pra revenda ou brindes corporativos.',
+    description: 'Suporte de celular personalizável em PLA, com personalização impressa em 3D direto na peça ou adesivo com nome/design do cliente. Ideal pra revenda ou brindes corporativos.',
     specs: {
       'Materiais': 'PLA',
     },
