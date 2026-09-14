@@ -1,6 +1,7 @@
 ---
 import type { Product } from '../data/products';
 import { installmentLabel } from '../lib/format';
+import { productColors } from '../lib/colors';
 
 interface Props {
   product: Product;
@@ -98,6 +99,38 @@ const defaultVariant = variants?.[0];
             <p class="text-sm text-grafite/70 leading-relaxed max-w-lg">{description}</p>
           )
         }
+
+        <div>
+          <p class="text-[10px] font-bold tracking-[1.54px] uppercase text-grafite mb-2">
+            Cor
+          </p>
+          <div id="color-selector" class="flex flex-wrap gap-2.5">
+            {productColors.map((c, i) => (
+              <button
+                type="button"
+                class={`color-swatch${i === 0 ? ' is-selected' : ''}`}
+                style={`background-color:${c.hex}`}
+                data-label={c.label}
+                aria-label={c.label}
+                title={c.label}
+              />
+            ))}
+          </div>
+          <p id="color-selected-label" class="text-xs text-grafite/60 mt-2">{productColors[0].label}</p>
+        </div>
+
+        <div>
+          <p class="text-[10px] font-bold tracking-[1.54px] uppercase text-grafite mb-2">
+            Personalização com logo
+          </p>
+          <div id="logo-toggle" class="inline-flex rounded-full border border-black/10 p-1">
+            <button type="button" class="logo-option is-selected" data-value="nao">Não</button>
+            <button type="button" class="logo-option" data-value="sim">Sim</button>
+          </div>
+          <p id="logo-note" class="text-xs text-grafite/60 mt-2" style="display:none">
+            Valor da personalização combinado no WhatsApp, de acordo com a complexidade da arte.
+          </p>
+        </div>
 
         {
           hasVariantChoice && (
@@ -243,6 +276,47 @@ const defaultVariant = variants?.[0];
     color: var(--color-creme);
     border-color: var(--color-azul);
   }
+
+  .color-swatch {
+    width: 28px;
+    height: 28px;
+    border-radius: 9999px;
+    border: 2px solid rgba(17, 17, 17, 0.15);
+    cursor: pointer;
+    padding: 0;
+    transition:
+      transform 150ms,
+      border-color 150ms,
+      box-shadow 150ms;
+  }
+
+  .color-swatch:hover {
+    transform: scale(1.08);
+  }
+
+  .color-swatch.is-selected {
+    border-color: var(--color-azul);
+    box-shadow: 0 0 0 2px var(--color-creme), 0 0 0 4px var(--color-azul);
+  }
+
+  .logo-option {
+    border: none;
+    background: transparent;
+    color: #111;
+    font-weight: 700;
+    font-size: 13px;
+    padding: 8px 18px;
+    border-radius: 9999px;
+    cursor: pointer;
+    transition:
+      background-color 150ms,
+      color 150ms;
+  }
+
+  .logo-option.is-selected {
+    background: var(--color-azul);
+    color: var(--color-creme);
+  }
 </style>
 
 <script>
@@ -275,6 +349,30 @@ const defaultVariant = variants?.[0];
       if (priceEl) priceEl.textContent = selectedVariant.price;
       if (loteEl) loteEl.textContent = `/${selectedVariant.quantity} und`;
       if (installmentEl) installmentEl.textContent = installmentLabel(selectedVariant.price);
+    });
+  });
+
+  const colorButtons = document.querySelectorAll<HTMLButtonElement>('.color-swatch');
+  const colorLabelEl = document.getElementById('color-selected-label');
+  let selectedColor = colorButtons[0]?.dataset.label ?? '';
+
+  colorButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      selectedColor = btn.dataset.label!;
+      colorButtons.forEach((b) => b.classList.toggle('is-selected', b === btn));
+      if (colorLabelEl) colorLabelEl.textContent = selectedColor;
+    });
+  });
+
+  const logoButtons = document.querySelectorAll<HTMLButtonElement>('.logo-option');
+  const logoNoteEl = document.getElementById('logo-note');
+  let wantsLogo = false;
+
+  logoButtons.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      wantsLogo = btn.dataset.value === 'sim';
+      logoButtons.forEach((b) => b.classList.toggle('is-selected', b === btn));
+      if (logoNoteEl) logoNoteEl.style.display = wantsLogo ? '' : 'none';
     });
   });
 
@@ -338,9 +436,20 @@ const defaultVariant = variants?.[0];
       image: string;
     };
     const baseSlug = slugify(product.name);
-    const itemName = selectedVariant ? `${product.name} - ${selectedVariant.label}` : product.name;
+    const nameParts = [product.name];
+    if (selectedVariant) nameParts.push(selectedVariant.label);
+    if (selectedColor) nameParts.push(selectedColor);
+    if (wantsLogo) nameParts.push('Com logo personalizado');
+    const itemName = nameParts.join(' - ');
+
     const itemPrice = selectedVariant ? selectedVariant.price : product.price;
-    const itemSlug = selectedVariant ? `${baseSlug}--${selectedVariant.quantity}` : baseSlug;
+
+    const slugParts = [baseSlug];
+    if (selectedVariant) slugParts.push(String(selectedVariant.quantity));
+    if (selectedColor) slugParts.push(slugify(selectedColor));
+    if (wantsLogo) slugParts.push('logo');
+    const itemSlug = slugParts.join('--');
+
     addToCart({ slug: itemSlug, name: itemName, price: itemPrice, image: product.image }, quantity);
 
     const original = addToCartLabel.textContent;

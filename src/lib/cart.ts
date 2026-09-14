@@ -72,12 +72,16 @@ export function buildWhatsAppMessage(items: CartItem[]): string {
   const lines = items.map(
     (i) => `• ${i.name} (x${i.qty}) — ${formatBRL(parsePrice(i.price) * i.qty)}`,
   );
+  const hasLogo = items.some((i) => i.name.includes('Com logo personalizado'));
   return [
     'Olá! Gostaria de fazer o seguinte pedido:',
     '',
     ...lines,
     '',
     `Total: ${formatBRL(getCartTotal(items))}`,
+    ...(hasLogo
+      ? ['', 'Obs: o valor da personalização com logo é combinado à parte, de acordo com a complexidade da arte.']
+      : []),
   ].join('\n');
 }
 
