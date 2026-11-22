@@ -27,8 +27,8 @@ export const products: Product[] = [
     },
     variants: [
       { label: '10 unidades', quantity: 10, price: 'R$ 120,00' },
-      { label: '25 unidades', quantity: 25, price: 'R$ 320,00' },
-      { label: '50 unidades', quantity: 50, price: 'R$ 595,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 300,00' },
+      { label: '50 unidades', quantity: 50, price: 'R$ 600,00' },
     ],
   },
   {
@@ -85,7 +85,7 @@ export const products: Product[] = [
     },
     variants: [
       { label: '10 unidades', quantity: 10, price: 'R$ 120,00' },
-      { label: '25 unidades', quantity: 25, price: 'R$ 400,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 300,00' },
     ],
   },
   {
@@ -99,7 +99,7 @@ export const products: Product[] = [
     },
     variants: [
       { label: '10 unidades', quantity: 10, price: 'R$ 150,00' },
-      { label: '25 unidades', quantity: 25, price: 'R$ 340,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 375,00' },
     ],
   },
   {
@@ -127,8 +127,8 @@ export const products: Product[] = [
     },
     variants: [
       { label: '10 unidades', quantity: 10, price: 'R$ 120,00' },
-      { label: '25 unidades', quantity: 25, price: 'R$ 256,00' },
-      { label: '50 unidades', quantity: 50, price: 'R$ 476,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 300,00' },
+      { label: '50 unidades', quantity: 50, price: 'R$ 600,00' },
     ],
   },
   {
@@ -143,8 +143,8 @@ export const products: Product[] = [
     },
     variants: [
       { label: '10 unidades', quantity: 10, price: 'R$ 100,00' },
-      { label: '25 unidades', quantity: 25, price: 'R$ 320,00' },
-      { label: '50 unidades', quantity: 50, price: 'R$ 595,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 250,00' },
+      { label: '50 unidades', quantity: 50, price: 'R$ 500,00' },
     ],
   },
 ];
