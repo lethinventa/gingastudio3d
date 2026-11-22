@@ -18,7 +18,7 @@ export interface Product {
 export const products: Product[] = [
   {
     name: 'Porta Anel Simples',
-    price: 'R$ 140,00',
+    price: 'R$ 120,00',
     category: 'Chaveiro',
     image: '/porta-anel-simples.png',
     description: 'Porta-anel para academia: potinho com tampa de click que prende no chaveiro, ideal pra guardar aliança, anéis ou brincos com segurança durante o treino. Ideal pra revenda em academias e lojas de artigos esportivos.',
@@ -26,7 +26,7 @@ export const products: Product[] = [
       'Materiais': 'PLA',
     },
     variants: [
-      { label: '10 unidades', quantity: 10, price: 'R$ 140,00' },
+      { label: '10 unidades', quantity: 10, price: 'R$ 120,00' },
       { label: '25 unidades', quantity: 25, price: 'R$ 320,00' },
       { label: '50 unidades', quantity: 50, price: 'R$ 595,00' },
     ],
@@ -76,7 +76,7 @@ export const products: Product[] = [
   },
   {
     name: 'Suporte Celular Personalizado',
-    price: 'R$ 173,00',
+    price: 'R$ 120,00',
     category: 'Utilidades',
     image: '/suporte-celular.png',
     description: 'Suporte de celular personalizável em PLA, com personalização impressa em 3D direto na peça ou adesivo com nome/design do cliente. Ideal pra revenda ou brindes corporativos.',
@@ -84,13 +84,13 @@ export const products: Product[] = [
       'Materiais': 'PLA',
     },
     variants: [
-      { label: '10 unidades', quantity: 10, price: 'R$ 173,00' },
+      { label: '10 unidades', quantity: 10, price: 'R$ 120,00' },
       { label: '25 unidades', quantity: 25, price: 'R$ 400,00' },
     ],
   },
   {
     name: 'Porta Anel Kettlebell',
-    price: 'R$ 147,00',
+    price: 'R$ 150,00',
     category: 'Chaveiro',
     image: '/porta-anel-kettlebell.png',
     description: 'Porta-anel formato kettlebell pra academia: potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis com segurança durante o treino.',
@@ -98,7 +98,7 @@ export const products: Product[] = [
       'Materiais': 'PLA',
     },
     variants: [
-      { label: '10 unidades', quantity: 10, price: 'R$ 147,00' },
+      { label: '10 unidades', quantity: 10, price: 'R$ 150,00' },
       { label: '25 unidades', quantity: 25, price: 'R$ 340,00' },
     ],
   },
@@ -118,7 +118,7 @@ export const products: Product[] = [
   },
   {
     name: 'Chaveiro Capacete',
-    price: 'R$ 112,00',
+    price: 'R$ 120,00',
     category: 'Chaveiro',
     image: '/chaveiro-capacete.png',
     description: 'Chaveiro em formato de capacete, ideal pra quem é apaixonado por moto ou ciclismo. Leve, resistente e fácil de personalizar com cores.',
@@ -126,14 +126,14 @@ export const products: Product[] = [
       'Materiais': 'PLA',
     },
     variants: [
-      { label: '10 unidades', quantity: 10, price: 'R$ 112,00' },
+      { label: '10 unidades', quantity: 10, price: 'R$ 120,00' },
       { label: '25 unidades', quantity: 25, price: 'R$ 256,00' },
       { label: '50 unidades', quantity: 50, price: 'R$ 476,00' },
     ],
   },
   {
     name: 'Porta Batom Ondas',
-    price: 'R$ 140,00',
+    price: 'R$ 100,00',
     category: 'Chaveiro',
     image: '/porta-batom-onda.png',
     images: ['/porta-batom-onda.png', '/porta-batom-onda2.png'],
@@ -142,7 +142,7 @@ export const products: Product[] = [
       'Materiais': 'PLA',
     },
     variants: [
-      { label: '10 unidades', quantity: 10, price: 'R$ 140,00' },
+      { label: '10 unidades', quantity: 10, price: 'R$ 100,00' },
       { label: '25 unidades', quantity: 25, price: 'R$ 320,00' },
       { label: '50 unidades', quantity: 50, price: 'R$ 595,00' },
     ],
