@@ -1,0 +1,137 @@
+import type { Product } from './products';
+
+// Lista antiga, escrita à mão. Só é usada quando o site roda sem as variáveis
+// SUPABASE_URL e SUPABASE_ANON_KEY (ex.: desenvolvimento local sem .env).
+export const productsFallback: Product[] = [
+  {
+    name: 'Porta Anel Simples',
+    price: 'R$ 120,00',
+    category: 'Chaveiro',
+    image: '/porta-anel-simples.png',
+    description: 'Porta-anel para academia: potinho com tampa de click que prende no chaveiro, ideal pra guardar aliança, anéis ou brincos com segurança durante o treino. Ideal pra revenda em academias e lojas de artigos esportivos.',
+    specs: {
+      'Materiais': 'PLA',
+    },
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 120,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 300,00' },
+      { label: '50 unidades', quantity: 50, price: 'R$ 600,00' },
+    ],
+  },
+  {
+    name: 'Abridor de Latas Boca',
+    price: 'R$ 106,00',
+    category: 'Abridor lata',
+    image: '/chaveiro-boca.png',
+    images: ['/chaveiro-boca.png', '/chaveiro-boca-2.png'],
+    description: 'Abridor de latas em PLA com boca ergonômica, resistente e fácil de usar no dia a dia. Ideal pra revenda em utilidades domésticas.',
+    specs: {
+      'Materiais': 'PLA',
+    },
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 106,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 245,00' },
+    ],
+  },
+  {
+    name: 'Porta Anel Premium',
+    price: 'R$ 165,00',
+    category: 'Chaveiro',
+    image: '/chaveiro-portal-anel-premium.png',
+    description: 'Porta-anel premium para academia: potinho com tampa rosqueável e forração interna em feltro pra não arranhar a joia, prende no chaveiro pra guardar aliança/anéis em segurança durante o treino. Personalização impressa em 3D direto na peça ou com adesivo vinílico.',
+    specs: {
+      'Materiais': 'PLA',
+    },
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 165,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 450,00' },
+    ],
+  },
+  {
+    name: 'Ponteira Lápis',
+    price: 'R$ 28,00',
+    category: 'Utilidades',
+    image: '/ponteira-lapis.jpg',
+    description: 'Ponteira de lápis em PLA, prática pra personalizar kits escolares ou brindes de papelaria.',
+    specs: {
+      'Materiais': 'PLA',
+    },
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 28,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 64,00' },
+    ],
+  },
+  {
+    name: 'Suporte Celular Personalizado',
+    price: 'R$ 120,00',
+    category: 'Utilidades',
+    image: '/suporte-celular.png',
+    description: 'Suporte de celular personalizável em PLA, com personalização impressa em 3D direto na peça ou adesivo com nome/design do cliente. Ideal pra revenda ou brindes corporativos.',
+    specs: {
+      'Materiais': 'PLA',
+    },
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 120,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 300,00' },
+    ],
+  },
+  {
+    name: 'Porta Anel Kettlebell',
+    price: 'R$ 150,00',
+    category: 'Chaveiro',
+    image: '/porta-anel-kettlebell.png',
+    description: 'Porta-anel formato kettlebell pra academia: potinho com tampa rosqueável que prende no chaveiro, guarda aliança/anéis com segurança durante o treino.',
+    specs: {
+      'Materiais': 'PLA',
+    },
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 150,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 375,00' },
+    ],
+  },
+  {
+    name: 'Suporte Foto Flor',
+    price: 'R$ 50,00',
+    category: 'Utilidades',
+    image: '/suporte-foto-flor.png',
+    description: 'Suporte de foto em formato de flor, em PLA — decora mesa ou escritório e segura fotos pequenas/polaroid. Ideal pra revenda em papelarias e lojas de decoração.',
+    specs: {
+      'Materiais': 'PLA',
+    },
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 50,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 125,00' },
+    ],
+  },
+  {
+    name: 'Chaveiro Capacete',
+    price: 'R$ 120,00',
+    category: 'Chaveiro',
+    image: '/chaveiro-capacete.png',
+    description: 'Chaveiro em formato de capacete, ideal pra quem é apaixonado por moto ou ciclismo. Leve, resistente e fácil de personalizar com cores.',
+    specs: {
+      'Materiais': 'PLA',
+    },
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 120,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 300,00' },
+      { label: '50 unidades', quantity: 50, price: 'R$ 600,00' },
+    ],
+  },
+  {
+    name: 'Porta Batom Ondas',
+    price: 'R$ 100,00',
+    category: 'Chaveiro',
+    image: '/porta-batom-onda.png',
+    images: ['/porta-batom-onda.png', '/porta-batom-onda2.png'],
+    description: 'Porta batom com textura em ondas, prático pra levar batom ou protetor labial na bolsa sem sujar tudo.',
+    specs: {
+      'Materiais': 'PLA',
+    },
+    variants: [
+      { label: '10 unidades', quantity: 10, price: 'R$ 100,00' },
+      { label: '25 unidades', quantity: 25, price: 'R$ 250,00' },
+      { label: '50 unidades', quantity: 50, price: 'R$ 500,00' },
+    ],
+  },
+];
